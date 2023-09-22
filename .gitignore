@@ -1,0 +1,17 @@
+/bin/
+.classpath
+/target/
+.settings
+.git-credentials
+.gitconfig
+/.local/
+/classes/
+/reports/
+/stderr
+.voc*
+voc*
+jacoco.*
+coverage.*
+lib_grade.*
+/.DS_Store
+build.xml
