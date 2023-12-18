@@ -1,0 +1,6 @@
+# Include this file in any WeeklyTimesheet example test using
+# !include .FitNesse.MyFitExamples.TimesheetHeader
+
+
+!include .FitNesse.MyFitExamples.CommonHeader
+

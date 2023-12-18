@@ -1,0 +1,3 @@
+!2 ''Triangle Example Tests''
+
+!contents -R2 -g -p -f -h

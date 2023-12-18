@@ -1,0 +1,29 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Sender)
+  1:	proc  0 (:init::1) Model1.pml:14 (state 1)	[(run Sender())]
+
+  2:	proc  1 (Sender:1) Model1.pml:4 (state -)	[values: 1!0]
+  2:	proc  1 (Sender:1) Model1.pml:4 (state 1)	[s2r!0]
+		queue 1 (s2r): [0]
+
+Starting Receiver with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Receiver)
+  3:	proc  0 (:init::1) Model1.pml:15 (state 2)	[(run Receiver())]
+
+  4:	proc  2 (Receiver:1) Model1.pml:9 (state -)	[values: 1?0]
+  4:	proc  2 (Receiver:1) Model1.pml:9 (state 1)	[s2r?0]
+		queue 1 (s2r): 
+
+  5:	proc  1 (Sender:1) Model1.pml:5 (state -)	[values: 1!1]
+  5:	proc  1 (Sender:1) Model1.pml:5 (state 2)	[s2r!1]
+		queue 1 (s2r): [1]
+
+  6:	proc  2 (Receiver:1) Model1.pml:10 (state -)	[values: 1?1]
+  6:	proc  2 (Receiver:1) Model1.pml:10 (state 2)	[s2r?1]
+		queue 1 (s2r): 
+
+  6:	proc  2 (Receiver:1) terminates
+  6:	proc  1 (Sender:1) terminates
+  6:	proc  0 (:init::1) terminates
+3 processes created

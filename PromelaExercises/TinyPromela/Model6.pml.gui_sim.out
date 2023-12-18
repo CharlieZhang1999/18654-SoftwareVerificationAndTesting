@@ -1,0 +1,38 @@
+using statement merging
+Starting Sender with pid 1
+spin:56 unrecognized mtype value
+  1:	proc  0 (:init::1) Model6.pml:56 (state 1)	[(run Sender(0))]
+
+Starting Sender with pid 2
+spin:57 unrecognized mtype value
+  2:	proc  0 (:init::1) Model6.pml:57 (state 2)	[(run Sender(0))]
+
+Starting Receiver with pid 3
+  3:	proc  0 (:init::1) Model6.pml:58 (state 3)	[(run Receiver())]
+
+  4:	proc  2 (Sender:1) Model6.pml:9 (state -)	[values: 1!0]
+  4:	proc  2 (Sender:1) Model6.pml:9 (state 1)	[s2r!seq_out]
+		queue 1 (s2r): [0]
+		Sender(2):seq_out = 0
+
+  5:	proc  3 (Receiver:1) Model6.pml:23 (state -)	[values: 1?0]
+  5:	proc  3 (Receiver:1) Model6.pml:21 (state 29)	[IF]
+		queue 1 (s2r): 
+		Receiver(3):received = 0
+
+  5:	proc  3 (Receiver:1) Model6.pml:32 (state 12)	[.(goto)]
+		queue 1 (s2r): 
+		Receiver(3):received = 0
+
+spin: trail ends after 5 steps
+#processes: 4
+		queue 1 (s2r): 
+  5:	proc  3 (Receiver:1) 
+		Receiver(3):received = 0
+  5:	proc  2 (Sender:1) Model6.pml:10 (state 6)
+		Sender(2):seq_out = 0
+  5:	proc  1 (Sender:1) Model6.pml:8 (state 10)
+		Sender(1):seq_out = 0
+  5:	proc  0 (:init::1) Model6.pml:59 (state 4)
+4 processes created
+Exit-Status 0

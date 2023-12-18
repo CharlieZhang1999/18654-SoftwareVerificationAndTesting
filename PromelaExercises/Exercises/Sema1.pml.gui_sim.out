@@ -1,0 +1,84 @@
+using statement merging
+  1:	proc  0 (Sema:1) Sema1.pml:9 (state 1)	[((free==1))]
+
+  2:	proc  0 (Sema:1) Sema1.pml:9 (state -)	[values: 1!P]
+  2:	proc  0 (Sema:1) Sema1.pml:9 (state 2)	[s!P]
+
+  3:	proc  3 (User:1) Sema1.pml:16 (state -)	[values: 1?P]
+  3:	proc  3 (User:1) Sema1.pml:16 (state 1)	[s?P]
+
+  4:	proc  3 (User:1) Sema1.pml:17 (state 2)	[(1)]
+
+  5:	proc  0 (Sema:1) Sema1.pml:9 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+  6:	proc  0 (Sema:1) Sema1.pml:10 (state 4)	[((free==0))]
+
+  7:	proc  3 (User:1) Sema1.pml:18 (state -)	[values: 1!V]
+  7:	proc  3 (User:1) Sema1.pml:18 (state 3)	[s!V]
+
+  8:	proc  0 (Sema:1) Sema1.pml:10 (state -)	[values: 1?V]
+  8:	proc  0 (Sema:1) Sema1.pml:10 (state 5)	[s?V]
+
+  9: proc 3 terminates
+ 10:	proc  0 (Sema:1) Sema1.pml:10 (state 6)	[free = 1]
+		Sema(0):free = 1
+
+ 11:	proc  0 (Sema:1) Sema1.pml:9 (state 1)	[((free==1))]
+
+ 12:	proc  0 (Sema:1) Sema1.pml:9 (state -)	[values: 1!P]
+ 12:	proc  0 (Sema:1) Sema1.pml:9 (state 2)	[s!P]
+
+ 13:	proc  2 (User:1) Sema1.pml:16 (state -)	[values: 1?P]
+ 13:	proc  2 (User:1) Sema1.pml:16 (state 1)	[s?P]
+
+ 14:	proc  2 (User:1) Sema1.pml:17 (state 2)	[(1)]
+
+ 15:	proc  0 (Sema:1) Sema1.pml:9 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+ 16:	proc  0 (Sema:1) Sema1.pml:10 (state 4)	[((free==0))]
+
+ 17:	proc  2 (User:1) Sema1.pml:18 (state -)	[values: 1!V]
+ 17:	proc  2 (User:1) Sema1.pml:18 (state 3)	[s!V]
+
+ 18:	proc  0 (Sema:1) Sema1.pml:10 (state -)	[values: 1?V]
+ 18:	proc  0 (Sema:1) Sema1.pml:10 (state 5)	[s?V]
+
+ 19: proc 2 terminates
+ 20:	proc  0 (Sema:1) Sema1.pml:10 (state 6)	[free = 1]
+		Sema(0):free = 1
+
+ 21:	proc  0 (Sema:1) Sema1.pml:9 (state 1)	[((free==1))]
+
+ 22:	proc  0 (Sema:1) Sema1.pml:9 (state -)	[values: 1!P]
+ 22:	proc  0 (Sema:1) Sema1.pml:9 (state 2)	[s!P]
+
+ 23:	proc  1 (User:1) Sema1.pml:16 (state -)	[values: 1?P]
+ 23:	proc  1 (User:1) Sema1.pml:16 (state 1)	[s?P]
+
+ 24:	proc  1 (User:1) Sema1.pml:17 (state 2)	[(1)]
+
+ 25:	proc  0 (Sema:1) Sema1.pml:9 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+ 26:	proc  0 (Sema:1) Sema1.pml:10 (state 4)	[((free==0))]
+
+ 27:	proc  1 (User:1) Sema1.pml:18 (state -)	[values: 1!V]
+ 27:	proc  1 (User:1) Sema1.pml:18 (state 3)	[s!V]
+
+ 28:	proc  0 (Sema:1) Sema1.pml:10 (state -)	[values: 1?V]
+ 28:	proc  0 (Sema:1) Sema1.pml:10 (state 5)	[s?V]
+
+ 29: proc 1 terminates
+ 30:	proc  0 (Sema:1) Sema1.pml:10 (state 6)	[free = 1]
+		Sema(0):free = 1
+
+ 31:	proc  0 (Sema:1) Sema1.pml:9 (state 1)	[((free==1))]
+
+spin: trail ends after 31 steps
+#processes: 1
+ 31:	proc  0 (Sema:1) Sema1.pml:9 (state 2)
+		Sema(0):free = 1
+4 processes created
+Exit-Status 0

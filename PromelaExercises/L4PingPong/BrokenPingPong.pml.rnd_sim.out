@@ -1,0 +1,1885 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+ltl singleBallForever: <> ([] (((ballsInGame+ballsOnGround)==1)))
+ltl initiallyNoBallsMustNotFailForCredit: (((ballsInGame+ballsOnGround)==0)) && ([] (1))
+ltl allBallsCannotBeConstantMustNotFailForCredit: (((! ([] (((ballsInGame+ballsOnGround)==0)))) && (! ([] (((ballsInGame+ballsOnGround)==1))))) && (! ([] (((ballsInGame+ballsOnGround)==2))))) && ([] (1))
+Starting Referee with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Referee)
+  1:	proc  0 (:init::1) BrokenPingPong.pml:71 (state 1)	[(run Referee())]
+
+  2:	proc  1 (Referee:1) BrokenPingPong.pml:43 (state 1)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+  3:	proc  1 (Referee:1) BrokenPingPong.pml:44 (state -)	[values: 1!BALL]
+  3:	proc  1 (Referee:1) BrokenPingPong.pml:44 (state 2)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+
+Starting Player with pid 2
+  4:	proc  0 (:init::1) creates proc  2 (Player)
+  4:	proc  0 (:init::1) BrokenPingPong.pml:72 (state 2)	[(run Player(0))]
+
+  5:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+  5:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+Starting Player with pid 3
+  6:	proc  0 (:init::1) creates proc  3 (Player)
+  6:	proc  0 (:init::1) BrokenPingPong.pml:73 (state 3)	[(run Player(1))]
+		queue 3 (ground): 
+
+  7:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+  8:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+  8:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+  9:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 10:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 11:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 11:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+ 12:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 13:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 14:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 14:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 15:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 15:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 16:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+ 17:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 17:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 18:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 19:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 20:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 20:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 21:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 22:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 23:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 23:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 24:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 24:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+ 25:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 26:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+ 26:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+ 27:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+ 27:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 28:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+ 29:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+ 30:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+ 31:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 31:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+ 32:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 33:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 34:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 34:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 35:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 36:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 37:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 37:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 38:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 38:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 39:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+ 40:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 40:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 41:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 42:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 43:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 43:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 44:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 45:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 46:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 46:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 47:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 47:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 48:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+ 49:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+ 49:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+ 50:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+ 51:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+ 51:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 52:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+ 53:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+ 53:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 54:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+ 55:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+ 56:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+ 57:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 57:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+ 58:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 59:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 59:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 60:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 61:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 62:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 62:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+ 63:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 64:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 65:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 65:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 66:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 66:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 67:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+ 68:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 68:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 69:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 70:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+ 71:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+ 71:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 72:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 73:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+ 74:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+ 74:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 75:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 75:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+ 76:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+ 77:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+ 77:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 78:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+ 78:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 79:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+ 80:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+ 80:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 81:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+ 82:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+ 83:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 84:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 2 (ptoP[1]): 
+
+ 85:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 85:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 86:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+ 87:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+ 87:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 88:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+ 89:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+ 89:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 90:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+ 91:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+ 92:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+ 92:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+ 93:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+ 94:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+ 95:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+ 95:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+ 96:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+ 97:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+ 97:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 98:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 99:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+100:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+100:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+101:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+102:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+103:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+103:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+104:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+104:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+105:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+106:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+106:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+107:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+108:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+109:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+109:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+110:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+111:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+112:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+112:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+113:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+113:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+114:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+115:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+115:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+116:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+116:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+117:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+118:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+118:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+119:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+120:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+121:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+122:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+123:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+123:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+124:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+125:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+125:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+126:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+127:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+127:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+128:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+129:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+130:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+130:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+131:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+131:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+132:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+133:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+134:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+134:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+135:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+136:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+137:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+137:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+138:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+139:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+140:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+140:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+141:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+141:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+142:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+143:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+143:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+144:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+145:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+146:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+146:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+147:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+148:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+149:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+149:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+150:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+151:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+151:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+152:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+153:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+153:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+154:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+155:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+156:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+156:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+157:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+158:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+159:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+159:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+160:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+160:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+161:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+162:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+162:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+163:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+164:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+165:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+165:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+166:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+167:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+167:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+168:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+168:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+169:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+170:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+170:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+171:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+172:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+173:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+174:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+174:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+175:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+176:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+177:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+177:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+178:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+178:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+179:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+180:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+181:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+182:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+182:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+183:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+184:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+185:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+185:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+186:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+187:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+188:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+188:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+189:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+189:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+190:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+191:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+191:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+192:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+193:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+194:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+194:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+195:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+196:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+197:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+197:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+198:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+198:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+199:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+200:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+200:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+201:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+202:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+203:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+203:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+204:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+205:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+206:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+206:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+207:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+207:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+208:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+209:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+209:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+210:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+210:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+211:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+212:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+213:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+214:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+214:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+215:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+215:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+216:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+217:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+217:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+218:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+219:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+220:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+220:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+221:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+222:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+223:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+223:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+224:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+224:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+225:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+226:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+227:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+228:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+228:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+229:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+230:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+231:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+231:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+232:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+233:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+234:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+234:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+235:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+235:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+236:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+237:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+237:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+238:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+239:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+240:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+240:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+241:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+242:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+243:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+243:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+244:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+244:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+245:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+246:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+246:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+247:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+248:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+249:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+249:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+250:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+251:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+252:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+252:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+253:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+253:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+254:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+255:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+255:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+256:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+257:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+258:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+258:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+259:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+260:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+261:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+261:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+262:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+262:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+263:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+264:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+264:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+265:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+266:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+267:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+267:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+268:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+269:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+270:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+270:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+271:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+271:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+272:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+273:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+273:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+274:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+275:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+276:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+276:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+277:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+278:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+279:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+279:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+280:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+280:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+281:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+282:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+282:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+283:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+284:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+285:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+285:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+286:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+287:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+288:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+288:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+289:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+289:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+290:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+291:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+291:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+292:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+293:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+294:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+294:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+295:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+296:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+296:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+297:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+298:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+299:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+299:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+300:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+301:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+302:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+302:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+303:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+303:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+304:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+305:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+305:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+306:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+306:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+307:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+308:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+309:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+310:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+310:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+311:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+312:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+313:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+313:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+314:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+315:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+316:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+316:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+317:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+317:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+318:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+319:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+319:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+320:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+321:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+322:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+322:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+323:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+324:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+325:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+325:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+326:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+326:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+327:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+328:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+328:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+329:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+330:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+331:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+331:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+332:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+333:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+334:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+334:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+335:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+335:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+336:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+337:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+337:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+338:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+338:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+339:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+340:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+341:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+342:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+342:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+343:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+343:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+344:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+345:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+346:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+347:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+347:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+348:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+349:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+350:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+350:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+351:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+352:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+353:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+353:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+354:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+354:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+355:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+356:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+356:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+357:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+358:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+359:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+359:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+360:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+361:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+362:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+362:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+363:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+363:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+364:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+365:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+365:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+366:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+367:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+368:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+368:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+369:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+370:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+371:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+371:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+372:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+372:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+373:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+374:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+374:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+375:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+376:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+377:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+377:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+378:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+379:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+380:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+380:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+381:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+381:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+382:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+383:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+383:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+384:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+385:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+386:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+386:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+387:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+
+388:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+388:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+389:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+390:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+391:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+391:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+392:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+393:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+393:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+394:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+395:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+396:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+396:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+397:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+398:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+399:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+399:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+400:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+400:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+401:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+402:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+402:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+403:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+403:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+404:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+405:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+405:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+406:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+407:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+408:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+409:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+410:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+410:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+411:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+
+412:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+412:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+413:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+414:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+415:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+415:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+416:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+417:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+417:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+418:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+419:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+419:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+420:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+421:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+422:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+422:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+423:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+423:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+424:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+425:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+425:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+426:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+427:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+428:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+429:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+430:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+430:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+431:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+432:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+432:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+433:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+434:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+435:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+435:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+436:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+437:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+438:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+438:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+439:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+439:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+440:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+441:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+441:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+442:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+443:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+444:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+444:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+445:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+446:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+447:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+447:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+448:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+448:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+449:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+450:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+450:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+451:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+451:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+452:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+453:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+454:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+455:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+455:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+456:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+457:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+458:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+458:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+459:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+460:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+461:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+461:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+462:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+462:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+463:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+464:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+464:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+465:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+466:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+466:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+467:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+468:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+469:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+469:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+470:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+470:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+471:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+472:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+472:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+473:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+474:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+475:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+475:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+476:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+477:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+478:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+478:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+479:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+479:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+480:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 3 (ground): 
+
+481:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+482:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+482:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+483:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+484:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+485:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+486:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+486:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+487:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 1 (ptoP[0]): 
+
+488:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+488:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+489:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+490:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+491:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+491:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+492:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+493:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+494:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+494:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+495:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+495:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+496:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+497:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+497:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+498:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+499:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+500:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+500:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+501:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+502:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+503:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+503:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+504:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+504:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+505:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+506:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+506:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+507:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+508:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+509:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+509:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+510:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+511:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+512:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+512:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+513:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+513:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+514:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+515:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+515:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+516:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+517:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+518:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+518:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+519:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+520:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+521:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+521:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+522:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+522:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+523:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+524:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+524:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+525:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+526:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+526:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+527:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+528:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+529:	proc  3 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 1!BALL]
+529:	proc  3 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+530:	proc  3 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+531:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+531:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+532:	proc  3 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+533:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+534:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+534:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+535:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+536:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+537:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+537:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+538:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+539:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+540:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+540:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+541:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+541:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+542:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+543:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+543:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+544:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+545:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+546:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+546:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+547:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+548:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+549:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+549:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+550:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+550:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+551:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+
+552:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+552:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+553:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+554:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+554:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+555:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+556:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 3 (ground): 
+
+557:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+557:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+558:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+559:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+560:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+560:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+561:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+562:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+563:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+563:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+564:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+564:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+565:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+566:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+566:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+567:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+568:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+569:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+569:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+570:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+571:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+572:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+572:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+573:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+573:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+574:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+575:	proc  2 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]
+575:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+576:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+577:	proc  2 (Player:1) BrokenPingPong.pml:64 (state 7)	[ballsInGame = (ballsInGame-1)]
+		ballsInGame = 0
+
+578:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state -)	[values: 3?BALL]
+578:	proc  1 (Referee:1) BrokenPingPong.pml:49 (state 4)	[ground?BALL]
+		queue 3 (ground): 
+579:	proc  1 (Referee:1) BrokenPingPong.pml:50 (state 5)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+580:	proc  1 (Referee:1) BrokenPingPong.pml:51 (state 6)	[ballsInGame = (ballsInGame+1)]
+		ballsInGame = 1
+581:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state -)	[values: 1!BALL]
+581:	proc  1 (Referee:1) BrokenPingPong.pml:52 (state 7)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+582:	proc  2 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 1?BALL]
+582:	proc  2 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+583:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+
+584:	proc  2 (Player:1) BrokenPingPong.pml:63 (state -)	[values: 2!BALL]
+584:	proc  2 (Player:1) BrokenPingPong.pml:63 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+585:	proc  3 (Player:1) BrokenPingPong.pml:61 (state -)	[values: 2?BALL]
+585:	proc  3 (Player:1) BrokenPingPong.pml:61 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+586:	proc  3 (Player:1) BrokenPingPong.pml:64 (state 4)	[(1)]
+
+587:	proc  2 (Player:1) BrokenPingPong.pml:66 (state 10)	[.(goto)]
+
+588:	proc  2 (Player:1) BrokenPingPong.pml:67 (state 12)	[.(goto)]
+
+589:	proc  3 (Player:1) BrokenPingPong.pml:64 (state -)	[values: 3!BALL]

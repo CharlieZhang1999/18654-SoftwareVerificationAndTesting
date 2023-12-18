@@ -1,0 +1,543 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Sender)
+  1:	proc  0 (:init::1) Model8.pml:65 (state 1)	[(run Sender(1,0))]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+
+  2:	proc  1 (Sender:1) Model8.pml:13 (state -)	[values: 2!1]
+  2:	proc  1 (Sender:1) Model8.pml:13 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+Starting Sender with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Sender)
+  3:	proc  0 (:init::1) Model8.pml:66 (state 2)	[(run Sender(1,1))]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+
+  4:	proc  2 (Sender:1) Model8.pml:13 (state -)	[values: 2!1]
+  4:	proc  2 (Sender:1) Model8.pml:13 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1][1]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+  5:	proc  1 (Sender:1) Model8.pml:16 (state 4)	[seq_out = (1-seq_out)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+Starting Receiver with pid 3
+  6:	proc  0 (:init::1) creates proc  3 (Receiver)
+  6:	proc  0 (:init::1) Model8.pml:67 (state 3)	[(run Receiver())]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+
+  7:	proc  3 (Receiver:1) Model8.pml:29 (state -)	[values: 2?1]
+  7:	proc  3 (Receiver:1) Model8.pml:29 (state 1)	[s2r?received]
+		queue 2 (s2r): [1]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Receiver(3):received = 1
+
+  8:	proc  1 (Sender:1) Model8.pml:16 (state 6)	[(1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+  9:	proc  3 (Receiver:1) Model8.pml:39 (state 9)	[(((received==1)&&(lastReceived!=1)))]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Receiver(3):received = 1
+
+ 10:	proc  2 (Sender:1) Model8.pml:16 (state 4)	[seq_out = (1-seq_out)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 0
+		lastReceived = 2
+		bitReceived = 0
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 11:	proc  3 (Receiver:1) Model8.pml:41 (state 10)	[count[1] = (count[1]+1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 2
+		bitReceived = 0
+		Receiver(3):received = 1
+ 12:	proc  3 (Receiver:1) Model8.pml:42 (state 11)	[bitReceived = (bitReceived+1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 2
+		bitReceived = 1
+		Receiver(3):received = 1
+ 13:	proc  3 (Receiver:1) Model8.pml:43 (state 12)	[lastReceived = received]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 14:	proc  1 (Sender:1) Model8.pml:18 (state 8)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 15:	proc  2 (Sender:1) Model8.pml:16 (state 6)	[(1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 16:	proc  1 (Sender:1) Model8.pml:20 (state 12)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 17:	proc  1 (Sender:1) Model8.pml:13 (state -)	[values: 2!0]
+ 17:	proc  1 (Sender:1) Model8.pml:13 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1][0]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 18:	proc  1 (Sender:1) Model8.pml:16 (state 4)	[seq_out = (1-seq_out)]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 19:	proc  2 (Sender:1) Model8.pml:18 (state 8)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 20:	proc  3 (Receiver:1) Model8.pml:47 (state 18)	[assert((((count[0]-count[1])<=1)&&((count[1]-count[0])<=1)))]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 21:	proc  1 (Sender:1) Model8.pml:16 (state 6)	[(1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 22:	proc  2 (Sender:1) Model8.pml:20 (state 12)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 23:	proc  3 (Receiver:1) Model8.pml:50 (state 20)	[.(goto)]
+		queue 2 (s2r): [1][0]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 24:	proc  3 (Receiver:1) Model8.pml:29 (state -)	[values: 2?1]
+ 24:	proc  3 (Receiver:1) Model8.pml:29 (state 1)	[s2r?received]
+		queue 2 (s2r): [0]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 25:	proc  3 (Receiver:1) Model8.pml:45 (state 14)	[else]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 26:	proc  3 (Receiver:1) Model8.pml:45 (state 15)	[goto :b1]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 27:	proc  2 (Sender:1) Model8.pml:13 (state -)	[values: 2!0]
+ 27:	proc  2 (Sender:1) Model8.pml:13 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0][0]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 28:	proc  2 (Sender:1) Model8.pml:16 (state 4)	[seq_out = (1-seq_out)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 29:	proc  1 (Sender:1) Model8.pml:18 (state 8)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 30:	proc  3 (Receiver:1) Model8.pml:50 (state -)	[values: 1!ERR]
+ 30:	proc  3 (Receiver:1) Model8.pml:50 (state 22)	[r2s!ERR]
+		queue 1 (r2s): [ERR]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 31:	proc  3 (Receiver:1) Model8.pml:51 (state -)	[values: 1!ERR]
+ 31:	proc  3 (Receiver:1) Model8.pml:51 (state 23)	[r2s!ERR]
+		queue 1 (r2s): [ERR][ERR]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 32:	proc  1 (Sender:1) Model8.pml:20 (state 12)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 33:	proc  2 (Sender:1) Model8.pml:16 (state 6)	[(1)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 34:	proc  2 (Sender:1) Model8.pml:18 (state 8)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 35:	proc  2 (Sender:1) Model8.pml:20 (state 12)	[.(goto)]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 36:	proc  1 (Sender:1) Model8.pml:18 (state -)	[values: 1?ERR]
+ 36:	proc  1 (Sender:1) Model8.pml:18 (state 9)	[r2s?ERR]
+		queue 2 (s2r): [0][0]
+		queue 1 (r2s): [ERR]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 37:	proc  2 (Sender:1) Model8.pml:18 (state -)	[values: 1?ERR]
+ 37:	proc  2 (Sender:1) Model8.pml:18 (state 9)	[r2s?ERR]
+		queue 1 (r2s): 
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 38:	proc  2 (Sender:1) Model8.pml:18 (state 10)	[goto :b0]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+ 39:	proc  1 (Sender:1) Model8.pml:18 (state 10)	[goto :b0]
+		finished[0] = 0
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 40:	proc  1 (Sender:1) Model8.pml:20 (state 14)	[finished[id] = 1]
+		finished[0] = 1
+		finished[1] = 0
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 41:	proc  2 (Sender:1) Model8.pml:20 (state 14)	[finished[id] = 1]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+timeout
+ 42:	proc  3 (Receiver:1) Model8.pml:52 (state 24)	[(timeout)]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 43:	proc  3 (Receiver:1) Model8.pml:53 (state 25)	[assert(finished[0])]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 44:	proc  3 (Receiver:1) Model8.pml:54 (state 26)	[assert(finished[1])]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 45:	proc  3 (Receiver:1) Model8.pml:62 (state 32)	[.(goto)]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 46:	proc  3 (Receiver:1) Model8.pml:58 (state 27)	[((len(s2r)>0))]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 1
+
+ 47:	proc  3 (Receiver:1) Model8.pml:58 (state -)	[values: 2?0]
+ 47:	proc  3 (Receiver:1) Model8.pml:58 (state 28)	[s2r?received]
+		queue 2 (s2r): [0]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 48:	proc  3 (Receiver:1) Model8.pml:62 (state 32)	[.(goto)]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 49:	proc  3 (Receiver:1) Model8.pml:58 (state 27)	[((len(s2r)>0))]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 50:	proc  3 (Receiver:1) Model8.pml:58 (state -)	[values: 2?0]
+ 50:	proc  3 (Receiver:1) Model8.pml:58 (state 28)	[s2r?received]
+		queue 2 (s2r): 
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 51:	proc  3 (Receiver:1) Model8.pml:62 (state 32)	[.(goto)]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 52:	proc  3 (Receiver:1) Model8.pml:59 (state 29)	[((len(s2r)==0))]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 53:	proc  3 (Receiver:1) Model8.pml:59 (state 30)	[goto :b2]
+		finished[0] = 1
+		finished[1] = 1
+		count[0] = 0
+		count[1] = 1
+		lastReceived = 1
+		bitReceived = 1
+		Receiver(3):received = 0
+
+ 53:	proc  3 (Receiver:1) terminates
+ 53:	proc  2 (Sender:1) terminates
+ 53:	proc  1 (Sender:1) terminates
+ 53:	proc  0 (:init::1) terminates
+4 processes created

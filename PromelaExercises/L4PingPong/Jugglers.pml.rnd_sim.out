@@ -1,0 +1,1758 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+ltl alwaysEventuallyGameOn: [] (<> ((ballsJuggling>=1)))
+ltl alwaysAtMostTwoBalls: [] ((ballsJuggling<=2))
+ltl alwaysEventuallyTwoBalls: (! (<> ([] ((ballsJuggling>=1))))) || ([] (<> ((ballsJuggling==2))))
+ltl notEventuallyAlwaysGameOn_FAIL: ! (<> ([] ((ballsOnGround==0))))
+ltl notPossiblyAllBallsAreDropped_FAIL: <> ([] ((ballsJuggling!=0)))
+ltl initiallyNoBallsMustNotFailForCredit: (((ballsJuggling+ballsOnGround)==0)) && ([] (1))
+ltl allBallsCannotBeConstantMustNotFailForCredit: (((! ([] (((ballsJuggling+ballsOnGround)==0)))) && (! ([] (((ballsJuggling+ballsOnGround)==1))))) && (! ([] (((ballsJuggling+ballsOnGround)==2))))) && ([] (1))
+Starting Referee with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Referee)
+  1:	proc  0 (:init::1) Jugglers.pml:75 (state 1)	[(run Referee())]
+
+  2:	proc  1 (Referee:1) Jugglers.pml:43 (state 1)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+  3:	proc  1 (Referee:1) Jugglers.pml:44 (state -)	[values: 1!BALL]
+  3:	proc  1 (Referee:1) Jugglers.pml:44 (state 2)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+
+  4:	proc  1 (Referee:1) Jugglers.pml:48 (state 4)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+  5:	proc  1 (Referee:1) Jugglers.pml:49 (state -)	[values: 1!BALL]
+  5:	proc  1 (Referee:1) Jugglers.pml:49 (state 5)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+Starting Player with pid 2
+  6:	proc  0 (:init::1) creates proc  2 (Player)
+  6:	proc  0 (:init::1) Jugglers.pml:76 (state 2)	[(run Player(0))]
+
+  7:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+  7:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+Starting Player with pid 3
+  8:	proc  0 (:init::1) creates proc  3 (Player)
+  8:	proc  0 (:init::1) Jugglers.pml:77 (state 3)	[(run Player(1))]
+		queue 3 (ground): 
+
+  9:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+ 10:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 10:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 11:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 12:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 13:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 13:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+ 14:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 15:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 16:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 16:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 17:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 17:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 18:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+ 19:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 19:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 20:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 21:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 22:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 22:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 23:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+ 24:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 24:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 25:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 26:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 27:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 27:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 28:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 28:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 29:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 30:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 31:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 31:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+ 32:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 33:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 34:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 34:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 35:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 35:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+ 36:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+ 37:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 37:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 38:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 39:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 40:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 40:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 41:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 42:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 43:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 43:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 44:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 44:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 45:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+ 46:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 46:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 47:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 48:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 49:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 49:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+ 50:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 50:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 51:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 52:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 53:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 53:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 54:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 55:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 55:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+ 56:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 57:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 58:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 58:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+ 59:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 59:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+ 60:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 61:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 62:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 62:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 63:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+ 64:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+ 64:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+ 65:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+ 66:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+ 67:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+ 67:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 68:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+ 69:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 69:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 70:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 71:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 72:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 72:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+ 73:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 74:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 75:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 75:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 76:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 76:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+
+ 77:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+ 78:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+ 78:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 79:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+ 79:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 80:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+ 81:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+ 81:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+ 82:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+ 83:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+ 84:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+ 84:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+ 85:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+ 86:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+ 87:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+ 87:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 88:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+ 89:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+ 90:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 90:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+ 91:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+
+ 92:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+ 92:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+ 93:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+ 94:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+ 94:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 95:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+ 96:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+ 96:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 97:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+ 98:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+ 98:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 99:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+100:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+101:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+101:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+102:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+103:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+104:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+105:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+105:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+106:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+107:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+107:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+108:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+109:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+110:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+110:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+111:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+112:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+113:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+113:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+114:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+114:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+115:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+116:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+116:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+117:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+117:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+118:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+119:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+120:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+121:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+121:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+122:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+122:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+123:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+124:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+125:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+
+126:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+126:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+127:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+128:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+129:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+129:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+130:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+131:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+131:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+132:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+132:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+133:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+134:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+134:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+135:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+136:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+137:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+137:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+138:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+139:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+140:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+140:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+141:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+142:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+142:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+143:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+144:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+145:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+145:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+146:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+146:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+147:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+148:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+149:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+150:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+150:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL][BALL]
+		queue 3 (ground): 
+
+151:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+152:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+153:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+153:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+154:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+155:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+155:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+156:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+157:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+158:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+158:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+159:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 1 (ptoP[0]): 
+
+160:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+160:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+161:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+162:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+163:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+163:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+164:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+164:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+165:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+165:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+166:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+167:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+168:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+169:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+169:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+170:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+171:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+172:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+172:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+173:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+173:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+174:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+175:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+175:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+176:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+177:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+178:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+178:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+179:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+180:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+180:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+181:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+182:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+183:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+183:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+184:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+185:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+186:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+186:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+187:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+187:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+188:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+189:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+189:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+190:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+191:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+192:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+192:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL][BALL]
+193:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 2
+194:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 0
+
+195:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+195:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+196:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+197:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 1
+198:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+198:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+199:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+199:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+200:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+201:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+201:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+202:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+203:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+204:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+204:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+205:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+205:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+206:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+206:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+207:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+208:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+209:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+209:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+210:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+211:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+212:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 2 (ptoP[1]): 
+
+213:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+213:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 2 (ptoP[1]): 
+
+214:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+215:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+215:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL][BALL]
+216:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 2
+217:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 0
+
+218:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+218:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+219:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+220:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 1
+221:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+221:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+222:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+222:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+223:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+223:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+224:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+225:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+226:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+226:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+227:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+228:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+228:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+229:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+230:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+231:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+231:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+232:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+233:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+233:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+234:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+235:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+236:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+236:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+237:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+237:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+238:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+239:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+240:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+240:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+241:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+242:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+243:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+243:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+244:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+244:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+245:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+246:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+246:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+247:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+247:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+248:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+249:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+250:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+250:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+251:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+252:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+253:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+253:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+254:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+255:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+256:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+256:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+257:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+258:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+258:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+259:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+260:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+260:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+261:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+262:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+263:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+263:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+264:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+265:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+266:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+266:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+267:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+267:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+268:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+
+269:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+269:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+270:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+271:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+272:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+272:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+273:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+273:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+274:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+275:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+275:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+276:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+277:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+278:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+279:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+279:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+280:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+281:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+282:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+282:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+283:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+283:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+284:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+285:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+286:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+286:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+287:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+288:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+289:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+289:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+290:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+290:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+291:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+292:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+292:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+293:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+294:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+295:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+295:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+296:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+296:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+297:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+298:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+299:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+299:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+300:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+301:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+301:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+302:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+303:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+304:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+304:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+305:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+305:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+306:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+307:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+308:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+308:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+309:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+310:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+310:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+311:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+312:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+312:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+313:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+314:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+314:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+315:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+316:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+316:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+317:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+318:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+319:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+320:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+320:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+321:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+322:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+323:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+323:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+324:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+325:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+326:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+326:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+327:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+327:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+328:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+328:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+329:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+330:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+330:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+331:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+332:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+333:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+334:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+334:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): [BALL]
+335:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+336:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+337:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+337:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+338:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+339:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+339:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+340:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+341:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+342:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+342:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+343:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+343:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+344:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+345:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+345:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+346:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+347:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+348:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+348:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+349:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+350:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+351:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+351:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+352:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+352:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+353:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+354:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+355:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+355:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+356:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+356:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+357:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+358:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+359:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+359:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+360:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+361:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+361:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+362:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+363:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+364:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+364:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+365:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+366:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+366:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+367:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+368:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+369:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+369:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+370:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+370:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+371:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+372:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+373:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+373:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+374:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+375:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+376:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+376:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+377:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+377:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+378:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+
+379:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+379:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+380:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+381:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+382:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+382:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+383:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+383:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+384:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+385:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+385:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+386:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+387:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+388:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+389:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+389:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+390:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+390:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+391:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+392:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+393:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+393:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+394:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+395:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+396:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+396:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+397:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+398:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+399:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+399:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+400:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 2 (ptoP[1]): 
+
+401:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+401:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+402:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+403:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+403:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+404:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+405:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+405:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+406:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+407:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+408:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+408:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+409:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+409:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+410:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+411:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+412:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+413:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+413:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+414:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+415:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+416:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+416:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+417:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+418:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+419:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+419:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+420:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+420:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+421:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+422:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+422:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+423:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+424:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+425:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+425:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+426:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+426:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+427:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+428:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+429:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+429:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+430:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+431:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+431:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+432:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+433:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+434:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+434:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+435:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+436:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+436:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+437:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+438:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+439:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+439:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+440:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+440:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): [BALL]
+441:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+442:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+443:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+443:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+444:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+445:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+446:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+446:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+447:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+447:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+448:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+449:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+449:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+450:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+451:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+452:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+452:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+453:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+453:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+454:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+455:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+456:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+456:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+457:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+457:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+458:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+459:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+460:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+461:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+462:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+462:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+463:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+463:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+464:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+465:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+466:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+466:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+467:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+467:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+468:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+469:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+470:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+470:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+471:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+472:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+473:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+474:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+474:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+475:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+475:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+476:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+477:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+478:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+478:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+479:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+480:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+481:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+481:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+482:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+483:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+483:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+484:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+485:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+		queue 3 (ground): 
+
+486:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+486:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+487:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+487:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+488:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+489:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+489:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+490:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+491:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+492:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+492:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+493:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+494:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+495:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+495:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+496:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+496:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+497:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+498:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+499:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+499:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+500:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+501:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+502:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+502:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+503:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+504:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+505:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+505:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+506:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+507:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+508:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+508:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+509:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+509:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+		queue 3 (ground): 
+
+510:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+510:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+511:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+512:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+512:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+513:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+514:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+515:	proc  3 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+516:	proc  3 (Player:1) Jugglers.pml:67 (state -)	[values: 1!BALL]
+516:	proc  3 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+517:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+517:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+518:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+519:	proc  3 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+520:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+520:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+521:	proc  2 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 2
+522:	proc  2 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 0
+
+523:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+523:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+524:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+525:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 1
+526:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+526:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+527:	proc  3 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+528:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+528:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+529:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+529:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+530:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+531:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+532:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+532:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+533:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+		queue 3 (ground): 
+
+534:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+534:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+535:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+536:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+537:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+537:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+538:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+539:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+539:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL][BALL]
+		queue 3 (ground): 
+
+540:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+
+541:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+541:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): [BALL]
+		queue 3 (ground): 
+
+542:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+543:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+543:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+544:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+545:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+546:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+546:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+547:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+548:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+548:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+549:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 2
+550:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 0
+
+551:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+551:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+552:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+553:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 1
+554:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+554:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+555:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+556:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+556:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+557:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+558:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+559:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+559:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+560:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+560:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+561:	proc  2 (Player:1) Jugglers.pml:67 (state 2)	[(1)]
+
+562:	proc  2 (Player:1) Jugglers.pml:67 (state -)	[values: 2!BALL]
+562:	proc  2 (Player:1) Jugglers.pml:67 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+563:	proc  3 (Player:1) Jugglers.pml:65 (state -)	[values: 2?BALL]
+563:	proc  3 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+		queue 3 (ground): 
+
+564:	proc  3 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+
+565:	proc  2 (Player:1) Jugglers.pml:70 (state 10)	[.(goto)]
+		queue 3 (ground): 
+
+566:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+566:	proc  3 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]
+567:	proc  3 (Player:1) Jugglers.pml:68 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		ballsOnGround = 1
+568:	proc  3 (Player:1) Jugglers.pml:68 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		ballsJuggling = 1
+
+569:	proc  1 (Referee:1) Jugglers.pml:54 (state -)	[values: 3?BALL]
+569:	proc  1 (Referee:1) Jugglers.pml:54 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+570:	proc  1 (Referee:1) Jugglers.pml:55 (state 8)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+571:	proc  1 (Referee:1) Jugglers.pml:56 (state 9)	[ballsOnGround = (ballsOnGround-1)]
+		ballsOnGround = 0
+572:	proc  1 (Referee:1) Jugglers.pml:57 (state -)	[values: 1!BALL]
+572:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+573:	proc  2 (Player:1) Jugglers.pml:71 (state 12)	[.(goto)]
+
+574:	proc  2 (Player:1) Jugglers.pml:65 (state -)	[values: 1?BALL]
+574:	proc  2 (Player:1) Jugglers.pml:65 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 3 (ground): 
+
+575:	proc  2 (Player:1) Jugglers.pml:68 (state 4)	[(1)]
+		queue 3 (ground): 
+
+576:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 3!BALL]
+576:	proc  2 (Player:1) Jugglers.pml:68 (state 5)	[ground!BALL]
+		queue 3 (ground): [BALL]

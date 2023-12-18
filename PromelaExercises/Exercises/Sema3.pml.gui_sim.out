@@ -1,0 +1,77 @@
+using statement merging
+  1:	proc  0 (Sema:1) Sema3.pml:9 (state 1)	[((free==1))]
+
+  2:	proc  0 (Sema:1) Sema3.pml:10 (state -)	[values: 1!P]
+  2:	proc  0 (Sema:1) Sema3.pml:10 (state 2)	[s!P]
+		queue 1 (s): [P]
+
+  3:	proc  0 (Sema:1) Sema3.pml:10 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+  4:	proc  0 (Sema:1) Sema3.pml:11 (state 4)	[((free==0))]
+
+  5:	proc  2 (User:1) Sema3.pml:18 (state -)	[values: 1?P]
+  5:	proc  2 (User:1) Sema3.pml:18 (state 1)	[s?P]
+		queue 1 (s): 
+
+  6:	proc  2 (User:1) Sema3.pml:19 (state 2)	[(1)]
+
+  7:	proc  2 (User:1) Sema3.pml:20 (state -)	[values: 1!V]
+  7:	proc  2 (User:1) Sema3.pml:20 (state 3)	[s!V]
+		queue 1 (s): [V]
+
+  8: proc 2 terminates
+  9:	proc  0 (Sema:1) Sema3.pml:12 (state -)	[values: 1?V]
+  9:	proc  0 (Sema:1) Sema3.pml:12 (state 5)	[s?V]
+		queue 1 (s): 
+
+ 10:	proc  0 (Sema:1) Sema3.pml:12 (state 6)	[free = 1]
+		Sema(0):free = 1
+
+ 11:	proc  0 (Sema:1) Sema3.pml:9 (state 1)	[((free==1))]
+
+ 12:	proc  0 (Sema:1) Sema3.pml:10 (state -)	[values: 1!P]
+ 12:	proc  0 (Sema:1) Sema3.pml:10 (state 2)	[s!P]
+		queue 1 (s): [P]
+
+ 13:	proc  0 (Sema:1) Sema3.pml:10 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+ 14:	proc  0 (Sema:1) Sema3.pml:11 (state 4)	[((free==0))]
+
+ 15:	proc  1 (User:1) Sema3.pml:18 (state -)	[values: 1?P]
+ 15:	proc  1 (User:1) Sema3.pml:18 (state 1)	[s?P]
+		queue 1 (s): 
+
+ 16:	proc  1 (User:1) Sema3.pml:19 (state 2)	[(1)]
+
+ 17:	proc  1 (User:1) Sema3.pml:20 (state -)	[values: 1!V]
+ 17:	proc  1 (User:1) Sema3.pml:20 (state 3)	[s!V]
+		queue 1 (s): [V]
+
+ 18: proc 1 terminates
+ 19:	proc  0 (Sema:1) Sema3.pml:12 (state -)	[values: 1?V]
+ 19:	proc  0 (Sema:1) Sema3.pml:12 (state 5)	[s?V]
+		queue 1 (s): 
+
+ 20:	proc  0 (Sema:1) Sema3.pml:12 (state 6)	[free = 1]
+		Sema(0):free = 1
+
+ 21:	proc  0 (Sema:1) Sema3.pml:9 (state 1)	[((free==1))]
+
+ 22:	proc  0 (Sema:1) Sema3.pml:10 (state -)	[values: 1!P]
+ 22:	proc  0 (Sema:1) Sema3.pml:10 (state 2)	[s!P]
+		queue 1 (s): [P]
+
+ 23:	proc  0 (Sema:1) Sema3.pml:10 (state 3)	[free = 0]
+		Sema(0):free = 0
+
+ 24:	proc  0 (Sema:1) Sema3.pml:11 (state 4)	[((free==0))]
+
+spin: trail ends after 24 steps
+#processes: 1
+		queue 1 (s): [P]
+ 24:	proc  0 (Sema:1) Sema3.pml:12 (state 5)
+		Sema(0):free = 0
+3 processes created
+Exit-Status 0

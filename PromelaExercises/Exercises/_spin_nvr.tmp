@@ -1,0 +1,45 @@
+never initialState_INIT {    /* !(((! (PL:walk)) && (VL:red)) && (! (push))) */
+accept_init:
+T0_init:
+	do
+	:: atomic { (! ((((! (PL:walk)) && (VL:red)) && (! (push))))) -> assert(!(! ((((! (PL:walk)) && (VL:red)) && (! (push)))))) }
+	od;
+accept_all:
+	skip
+}
+never safePedestrian {    /* !([] ((! (PL:walk)) || (VL:red))) */
+T0_init:
+	do
+	:: atomic { (! (((! (PL:walk)) || (VL:red)))) -> assert(!(! (((! (PL:walk)) || (VL:red))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never pedestrianCanCross {    /* !([] ((! (push)) || (<> (PL:walk)))) */
+T0_init:
+	do
+	:: (! ((! (push))) && ! ((PL:walk))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! ((PL:walk))) -> goto accept_S4
+	od;
+}
+never redStrictlyBeforeWalk {    /* !((! (! (PL:walk))) || ((! (PL:walk)) U ((VL:red) && (! (PL:walk))))) */
+accept_init:
+T0_init:
+	do
+	:: (! ((! (! (PL:walk)))) && ! (((VL:red) && (! (PL:walk))))) -> goto accept_S3
+	:: atomic { (! ((! (! (PL:walk)))) && ! ((! (PL:walk))) && ! (((VL:red) && (! (PL:walk))))) -> assert(!(! ((! (! (PL:walk)))) && ! ((! (PL:walk))) && ! (((VL:red) && (! (PL:walk)))))) }
+	od;
+accept_S3:
+T0_S3:
+	do
+	:: (! (((VL:red) && (! (PL:walk))))) -> goto accept_S3
+	:: atomic { (! ((! (PL:walk))) && ! (((VL:red) && (! (PL:walk))))) -> assert(!(! ((! (PL:walk))) && ! (((VL:red) && (! (PL:walk)))))) }
+	od;
+accept_all:
+	skip
+}

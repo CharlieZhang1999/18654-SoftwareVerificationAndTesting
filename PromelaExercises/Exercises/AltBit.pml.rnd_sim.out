@@ -1,0 +1,220 @@
+  0:	proc  - (:root:) creates proc  0 (Sender)
+  0:	proc  - (:root:) creates proc  1 (Receiver)
+  1:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+  1:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+  2:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+  2:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 1 (to_rcvr): 
+
+  3:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+  3:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+  4:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+  4:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+  5:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+  5:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+  6:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+  6:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 1 (to_rcvr): 
+
+  7:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]
+  7:	proc  1 (Receiver:1) AltBit.pml:20 (state 4)	[to_sndr!ACK0]
+		queue 2 (to_sndr): [ACK0]
+
+  8:	proc  1 (Receiver:1) AltBit.pml:21 (state 5)	[goto again]
+
+  9:	proc  0 (Sender:1) AltBit.pml:11 (state -)	[values: 2?ACK0]
+  9:	proc  0 (Sender:1) AltBit.pml:11 (state 4)	[to_sndr?ACK0]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 10:	proc  0 (Sender:1) AltBit.pml:12 (state 5)	[goto again]
+
+ 11:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+ 11:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+ 12:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+ 12:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 1 (to_rcvr): 
+
+ 13:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+ 13:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+ 14:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+ 14:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 15:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+ 15:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+ 16:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+ 16:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 17:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]
+ 17:	proc  1 (Receiver:1) AltBit.pml:20 (state 4)	[to_sndr!ACK0]
+		queue 2 (to_sndr): [ACK0]
+
+ 18:	proc  1 (Receiver:1) AltBit.pml:21 (state 5)	[goto again]
+
+ 19:	proc  0 (Sender:1) AltBit.pml:11 (state -)	[values: 2?ACK0]
+ 19:	proc  0 (Sender:1) AltBit.pml:11 (state 4)	[to_sndr?ACK0]
+		queue 2 (to_sndr): 
+
+ 20:	proc  0 (Sender:1) AltBit.pml:12 (state 5)	[goto again]
+		queue 1 (to_rcvr): 
+
+ 21:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+ 21:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+ 22:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+ 22:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 23:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+ 23:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+ 24:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+ 24:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 25:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+ 25:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+ 26:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+ 26:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 27:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]
+ 27:	proc  1 (Receiver:1) AltBit.pml:20 (state 4)	[to_sndr!ACK0]
+		queue 2 (to_sndr): [ACK0]
+
+ 28:	proc  0 (Sender:1) AltBit.pml:11 (state -)	[values: 2?ACK0]
+ 28:	proc  0 (Sender:1) AltBit.pml:11 (state 4)	[to_sndr?ACK0]
+		queue 2 (to_sndr): 
+
+ 29:	proc  1 (Receiver:1) AltBit.pml:21 (state 5)	[goto again]
+
+ 30:	proc  0 (Sender:1) AltBit.pml:12 (state 5)	[goto again]
+		queue 1 (to_rcvr): 
+
+ 31:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+ 31:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+ 32:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+ 32:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 1 (to_rcvr): 
+
+ 33:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+ 33:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+ 34:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+ 34:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 35:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+ 35:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+ 36:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+ 36:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 1 (to_rcvr): 
+
+ 37:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]
+ 37:	proc  1 (Receiver:1) AltBit.pml:20 (state 4)	[to_sndr!ACK0]
+		queue 2 (to_sndr): [ACK0]
+
+ 38:	proc  0 (Sender:1) AltBit.pml:11 (state -)	[values: 2?ACK0]
+ 38:	proc  0 (Sender:1) AltBit.pml:11 (state 4)	[to_sndr?ACK0]
+		queue 2 (to_sndr): 
+
+ 39:	proc  0 (Sender:1) AltBit.pml:12 (state 5)	[goto again]
+
+ 40:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+ 40:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+ 41:	proc  1 (Receiver:1) AltBit.pml:21 (state 5)	[goto again]
+
+ 42:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+ 42:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 1 (to_rcvr): 
+
+ 43:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+ 43:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+ 44:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+ 44:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+
+ 45:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+ 45:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+ 46:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+ 46:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 47:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]
+ 47:	proc  1 (Receiver:1) AltBit.pml:20 (state 4)	[to_sndr!ACK0]
+		queue 2 (to_sndr): [ACK0]
+
+ 48:	proc  0 (Sender:1) AltBit.pml:11 (state -)	[values: 2?ACK0]
+ 48:	proc  0 (Sender:1) AltBit.pml:11 (state 4)	[to_sndr?ACK0]
+		queue 2 (to_sndr): 
+
+ 49:	proc  1 (Receiver:1) AltBit.pml:21 (state 5)	[goto again]
+
+ 50:	proc  0 (Sender:1) AltBit.pml:12 (state 5)	[goto again]
+		queue 1 (to_rcvr): 
+
+ 51:	proc  0 (Sender:1) AltBit.pml:8 (state -)	[values: 1!MSG1]
+ 51:	proc  0 (Sender:1) AltBit.pml:8 (state 1)	[to_rcvr!MSG1]
+		queue 1 (to_rcvr): [MSG1]
+
+ 52:	proc  1 (Receiver:1) AltBit.pml:17 (state -)	[values: 1?MSG1]
+ 52:	proc  1 (Receiver:1) AltBit.pml:17 (state 1)	[to_rcvr?MSG1]
+		queue 2 (to_sndr): 
+		queue 1 (to_rcvr): 
+
+ 53:	proc  1 (Receiver:1) AltBit.pml:18 (state -)	[values: 2!ACK1]
+ 53:	proc  1 (Receiver:1) AltBit.pml:18 (state 2)	[to_sndr!ACK1]
+		queue 2 (to_sndr): [ACK1]
+
+ 54:	proc  0 (Sender:1) AltBit.pml:9 (state -)	[values: 2?ACK1]
+ 54:	proc  0 (Sender:1) AltBit.pml:9 (state 2)	[to_sndr?ACK1]
+		queue 2 (to_sndr): 
+
+ 55:	proc  0 (Sender:1) AltBit.pml:10 (state -)	[values: 1!MSG0]
+ 55:	proc  0 (Sender:1) AltBit.pml:10 (state 3)	[to_rcvr!MSG0]
+		queue 1 (to_rcvr): [MSG0]
+
+ 56:	proc  1 (Receiver:1) AltBit.pml:19 (state -)	[values: 1?MSG0]
+ 56:	proc  1 (Receiver:1) AltBit.pml:19 (state 3)	[to_rcvr?MSG0]
+		queue 1 (to_rcvr): 
+
+ 57:	proc  1 (Receiver:1) AltBit.pml:20 (state -)	[values: 2!ACK0]

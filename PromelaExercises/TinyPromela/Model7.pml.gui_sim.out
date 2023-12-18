@@ -1,0 +1,225 @@
+using statement merging
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) Model7.pml:62 (state 1)	[(run Sender(1,0))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+
+Starting Sender with pid 2
+  2:	proc  0 (:init::1) Model7.pml:63 (state 2)	[(run Sender(1,1))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+
+Starting Receiver with pid 3
+  3:	proc  0 (:init::1) Model7.pml:64 (state 3)	[(run Receiver())]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+
+  4:	proc  2 (Sender:1) Model7.pml:12 (state -)	[values: 1!1]
+  4:	proc  2 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 1 (s2r): [1]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(2):id = 1
+		Sender(2):seq_out = 1
+
+  5:	proc  3 (Receiver:1) Model7.pml:28 (state -)	[values: 1?1]
+  5:	proc  3 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 1 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Receiver(3):received = 1
+
+  6:	proc  3 (Receiver:1) Model7.pml:36 (state 6)	[(((received==1)&&(lastReceived!=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Receiver(3):received = 1
+
+  7:	proc  3 (Receiver:1) Model7.pml:37 (state 9)	[ones = (ones+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 2
+		Receiver(3):received = 1
+
+  7:	proc  3 (Receiver:1) Model7.pml:39 (state 8)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+  8:	proc  3 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+  9:	proc  2 (Sender:1) Model7.pml:15 (state 5)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 10:	proc  2 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 11:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 1!1]
+ 11:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 1 (s2r): [1]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 12:	proc  3 (Receiver:1) Model7.pml:28 (state -)	[values: 1?1]
+ 12:	proc  3 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 1 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+ 13:	proc  3 (Receiver:1) Model7.pml:41 (state 10)	[else]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+ 14:	proc  3 (Receiver:1) Model7.pml:46 (state -)	[values: 2!ERR]
+ 14:	proc  3 (Receiver:1) Model7.pml:46 (state 18)	[r2s!ERR]
+		queue 2 (r2s): [ERR]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+ 15:	proc  3 (Receiver:1) Model7.pml:47 (state -)	[values: 2!ERR]
+ 15:	proc  3 (Receiver:1) Model7.pml:47 (state 19)	[r2s!ERR]
+		queue 2 (r2s): [ERR][ERR]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+ 16:	proc  2 (Sender:1) Model7.pml:12 (state -)	[values: 1!0]
+ 16:	proc  2 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 1 (s2r): [0]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 17:	proc  2 (Sender:1) Model7.pml:14 (state -)	[values: 2?ERR]
+ 17:	proc  2 (Sender:1) Model7.pml:14 (state 2)	[r2s?ERR]
+		queue 2 (r2s): [ERR]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 18:	proc  2 (Sender:1) Model7.pml:19 (state 14)	[finish[id] = 1]
+		finish[0] = 0
+		finish[1] = 1
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+
+ 19:	proc  1 (Sender:1) Model7.pml:14 (state -)	[values: 2?ERR]
+ 19:	proc  1 (Sender:1) Model7.pml:14 (state 2)	[r2s?ERR]
+		queue 2 (r2s): 
+		finish[0] = 0
+		finish[1] = 1
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 20:	proc  1 (Sender:1) Model7.pml:19 (state 14)	[finish[id] = 1]
+		finish[0] = 1
+		finish[1] = 1
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 21:	proc  3 (Receiver:1) Model7.pml:48 (state 20)	[(timeout)]
+		finish[0] = 1
+		finish[1] = 1
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+		Receiver(3):received = 1
+
+spin: Model7.pml:49, Error: assertion violated
+spin: text of failed assertion: assert((zeros!=0))
+#processes: 4
+		queue 1 (s2r): [0]
+		queue 2 (r2s): 
+		finish[0] = 1
+		finish[1] = 1
+		zeros = 0
+		ones = 1
+		lastReceived = 1
+ 22:	proc  3 (Receiver:1) Model7.pml:49 (state 21)
+		Receiver(3):received = 1
+ 22:	proc  2 (Sender:1) Model7.pml:20 (state 15)
+		Sender(2):id = 1
+		Sender(2):seq_out = 0
+ 22:	proc  1 (Sender:1) Model7.pml:20 (state 15)
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+ 22:	proc  0 (:init::1) Model7.pml:65 (state 4)
+4 processes created
+Exit-Status 0

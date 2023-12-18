@@ -1,0 +1,4 @@
+---
+Suites: http://www.msftncsi.com/ncsi.txt
+---
+!contents -R2 -g -p -f -h

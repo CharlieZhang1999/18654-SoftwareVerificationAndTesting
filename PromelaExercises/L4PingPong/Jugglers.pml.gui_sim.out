@@ -1,0 +1,1162 @@
+ltl alwaysEventuallyGameOn: [] (<> ((ballsJuggling>=1)))
+ltl alwaysAtMostTwoBalls: [] ((ballsJuggling<=2))
+ltl alwaysEventuallyTwoBalls: (! (<> ([] ((ballsJuggling>=1))))) || ([] (<> ((ballsJuggling==2))))
+ltl notEventuallyAlwaysGameOn_FAIL: ! (<> ([] ((ballsOnGround==0))))
+ltl notPossiblyAllBallsAreDropped_FAIL: <> ([] ((ballsOnGround!=2)))
+ltl initiallyNoBallsMustNotFailForCredit: (((ballsJuggling+ballsOnGround)==0)) && ([] (1))
+ltl allBallsCannotBeConstantMustNotFailForCredit: (((! ([] (((ballsJuggling+ballsOnGround)==0)))) && (! ([] (((ballsJuggling+ballsOnGround)==1))))) && (! ([] (((ballsJuggling+ballsOnGround)==2))))) && ([] (1))
+starting claim 7
+using statement merging
+MSC: ~G line 58
+  1:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+Starting Referee with pid 2
+  2:	proc  0 (:init::1) Jugglers.pml:76 (state 1)	[(run Referee())]
+
+  3:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Starting Player with pid 3
+  4:	proc  0 (:init::1) Jugglers.pml:77 (state 2)	[(run Player(0))]
+
+  5:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Starting Player with pid 4
+  6:	proc  0 (:init::1) Jugglers.pml:78 (state 3)	[(run Player(1))]
+
+  7:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+  8:	proc  1 (Referee:1) Jugglers.pml:42 (state 3)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+  8:	proc  1 (Referee:1) Jugglers.pml:44 (state -)	[values: 1!BALL]
+  8:	proc  1 (Referee:1) Jugglers.pml:44 (state 2)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		queue 2 (ptoP[1]): 
+		ballsJuggling = 1
+
+  9:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 10:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 10:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 11:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 12:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 13:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 14:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 14:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 15:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 16:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 16:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 17:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 18:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 19:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 20:	proc  1 (Referee:1) Jugglers.pml:47 (state 6)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+
+ 20:	proc  1 (Referee:1) Jugglers.pml:49 (state -)	[values: 1!BALL]
+ 20:	proc  1 (Referee:1) Jugglers.pml:49 (state 5)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 2
+
+ 21:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 22:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+ 22:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 23:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 24:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 24:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 25:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 26:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 27:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 28:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 28:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 29:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 30:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 30:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 31:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 32:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+ 33:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 34:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+ 34:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+ 34:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 1
+
+ 34:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+ 35:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 36:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 36:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 37:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 38:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 39:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 40:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 40:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+<<<<<START OF CYCLE>>>>>
+ 41:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 42:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 42:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 43:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 44:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 45:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 46:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+ 46:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+ 47:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 48:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+ 48:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 49:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 50:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 50:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 51:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 52:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 53:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 54:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 54:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 55:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 56:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 56:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 57:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 58:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+ 59:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 60:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+ 60:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+ 60:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 2
+
+ 60:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+ 61:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+ 62:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+ 62:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+MSC: ~G line 62
+ 63:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+ 64:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+MSC: ~G line 57
+ 65:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+ 66:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+ 66:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+ 66:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+ 66:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 62
+ 67:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+ 68:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 68:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+MSC: ~G line 58
+ 69:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+ 70:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 71:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 72:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 72:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 73:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 74:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 74:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 75:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 76:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 77:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 78:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+ 78:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 79:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 80:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+ 81:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 82:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 82:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+ 83:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 84:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 85:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 86:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+ 86:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+ 87:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 88:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+ 88:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+ 89:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 90:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 91:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 92:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+
+ 92:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+ 92:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+ 92:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+ 93:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 94:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+ 94:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+ 95:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 96:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+ 96:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+ 97:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+ 98:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+ 99:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+100:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+100:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+101:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+102:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+102:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+103:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+104:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+105:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+106:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+106:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+106:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 1
+
+106:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+107:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+108:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+108:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+109:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+110:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+111:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+112:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+112:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+113:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+114:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+114:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+115:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+116:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+117:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+118:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+119:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+120:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+120:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+121:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+122:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+122:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+123:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+124:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+125:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+126:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+126:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+127:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+128:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+128:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+129:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+130:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+131:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+132:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+132:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+
+132:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsOnGround = 2
+
+132:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+133:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+134:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+134:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+134:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+134:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 62
+135:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+136:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+136:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+MSC: ~G line 58
+137:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+138:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+139:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+140:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+140:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+141:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+142:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+142:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+143:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+144:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+145:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+146:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+146:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+147:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+148:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+149:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+150:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+150:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+151:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+152:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+153:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+154:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+154:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+155:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+156:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+156:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+157:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+158:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+159:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+160:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+
+160:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+160:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+160:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+161:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+162:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+162:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+163:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+164:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+164:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+165:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+166:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+167:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+168:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+168:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+169:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+170:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+170:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+171:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+172:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+173:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+174:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+174:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+175:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+176:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+177:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+178:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+178:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+179:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+180:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+180:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+
+181:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+182:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+182:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+183:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+184:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+184:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+184:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 1
+
+184:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+185:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+186:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+187:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+188:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+188:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+189:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+190:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+191:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+192:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+192:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+193:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+194:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+194:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+195:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+196:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+197:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+198:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+
+198:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+198:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+198:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+199:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+200:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+200:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+201:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+202:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+202:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+203:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+204:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+205:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+206:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+206:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL][BALL]
+
+207:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+208:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+208:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+209:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+210:	proc  2 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+211:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+212:	proc  2 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+212:	proc  2 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+
+212:	proc  2 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsOnGround = 1
+
+212:	proc  2 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+213:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+214:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+214:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+215:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+216:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+217:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+218:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+218:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+219:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+220:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+220:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+221:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+222:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+223:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+224:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+225:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+226:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+226:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+227:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+228:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+228:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+229:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+230:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+231:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+232:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+232:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+233:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+234:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+234:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+235:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+236:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+237:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+238:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 2
+
+238:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+238:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+238:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 2
+		ballsOnGround = 0
+
+239:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+240:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+240:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+241:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+242:	proc  2 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+243:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+244:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+244:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+
+245:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+246:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+246:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+
+246:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsOnGround = 1
+
+246:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+247:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+248:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+248:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+
+249:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+250:	proc  2 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+250:	proc  2 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+
+250:	proc  2 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsOnGround = 2
+
+250:	proc  2 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+251:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+252:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+252:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+
+MSC: ~G line 62
+253:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+254:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+254:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+MSC: ~G line 57
+255:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+256:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+MSC: ~G line 62
+257:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+258:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+258:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+258:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+258:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 58
+259:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+260:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+261:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+262:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+262:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+263:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+264:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+265:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+266:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+266:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+267:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+268:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+268:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+269:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+270:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+271:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+272:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+272:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+272:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 2
+
+272:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+273:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+274:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+274:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+274:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+274:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 62
+275:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+276:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+276:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+MSC: ~G line 58
+277:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+278:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+279:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+280:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+280:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+281:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+282:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+282:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+283:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+284:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+285:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+286:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+286:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL][BALL]
+
+286:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsOnGround = 2
+
+286:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL][BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+287:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+288:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+288:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): [BALL]
+
+MSC: ~G line 62
+289:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+290:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+290:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+MSC: ~G line 58
+291:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+292:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+MSC: ~G line 57
+293:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+294:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+294:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+294:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+294:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 62
+295:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+296:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+296:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+MSC: ~G line 58
+297:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+298:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+299:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+300:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+300:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+301:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+302:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+302:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+303:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+304:	proc  3 (Player:1) Jugglers.pml:69 (state 4)	[(1)]
+
+305:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+306:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+307:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+308:	proc  3 (Player:1) Jugglers.pml:69 (state -)	[values: 3!BALL]
+308:	proc  3 (Player:1) Jugglers.pml:69 (state 8)	[ground!BALL]
+		queue 3 (ground): [BALL]
+
+308:	proc  3 (Player:1) Jugglers.pml:69 (state 6)	[ballsOnGround = (ballsOnGround+1)]
+		queue 3 (ground): [BALL]
+		ballsOnGround = 2
+
+308:	proc  3 (Player:1) Jugglers.pml:69 (state 7)	[ballsJuggling = (ballsJuggling-1)]
+		queue 3 (ground): [BALL]
+		ballsJuggling = 0
+		ballsOnGround = 2
+
+MSC: ~G line 57
+309:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:57 (state 1)	[(!((ballsOnGround!=2)))]
+
+Never claim moves to line 57	[(!((ballsOnGround!=2)))]
+310:	proc  1 (Referee:1) Jugglers.pml:55 (state 12)	[ballsJuggling = (ballsJuggling+1)]
+		ballsJuggling = 1
+
+310:	proc  1 (Referee:1) Jugglers.pml:57 (state 10)	[ballsOnGround = (ballsOnGround-1)]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+310:	proc  1 (Referee:1) Jugglers.pml:58 (state -)	[values: 1!BALL]
+310:	proc  1 (Referee:1) Jugglers.pml:58 (state 11)	[ptoP[0]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+		ballsJuggling = 1
+		ballsOnGround = 1
+
+MSC: ~G line 62
+311:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:62 (state 8)	[(1)]
+
+Never claim moves to line 62	[(1)]
+312:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+312:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+MSC: ~G line 58
+313:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+Never claim moves to line 58	[(1)]
+314:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+315:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+316:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+316:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+317:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+318:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+318:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+319:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+320:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+321:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+322:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+322:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+323:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+324:	proc  1 (Referee:1) Jugglers.pml:53 (state -)	[values: 3?BALL]
+324:	proc  1 (Referee:1) Jugglers.pml:53 (state 7)	[ground?BALL]
+		queue 3 (ground): 
+
+325:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+326:	proc  2 (Player:1) Jugglers.pml:66 (state -)	[values: 1?BALL]
+326:	proc  2 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 1 (ptoP[0]): 
+
+327:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+328:	proc  2 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+329:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+330:	proc  2 (Player:1) Jugglers.pml:68 (state -)	[values: 2!BALL]
+330:	proc  2 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 2 (ptoP[1]): [BALL]
+
+331:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+332:	proc  3 (Player:1) Jugglers.pml:66 (state -)	[values: 2?BALL]
+332:	proc  3 (Player:1) Jugglers.pml:66 (state 1)	[ptoP[i]?BALL]
+		queue 2 (ptoP[1]): 
+
+333:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+334:	proc  3 (Player:1) Jugglers.pml:68 (state 2)	[(1)]
+
+335:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+336:	proc  1 (Referee:1) Jugglers.pml:54 (state 8)	[((ballsOnGround>=1))]
+
+337:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]
+
+338:	proc  3 (Player:1) Jugglers.pml:68 (state -)	[values: 1!BALL]
+338:	proc  3 (Player:1) Jugglers.pml:68 (state 3)	[ptoP[(1-i)]!BALL]
+		queue 1 (ptoP[0]): [BALL]
+
+339:	proc  - (notPossiblyAllBallsAreDropped_FAIL:1) _spin_nvr.tmp:58 (state 3)	[(1)]

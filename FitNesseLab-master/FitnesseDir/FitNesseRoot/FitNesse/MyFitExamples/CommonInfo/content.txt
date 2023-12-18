@@ -1,0 +1,16 @@
+Fitnesse is based on Fit - Ward Cunnigham's original Framework for Integration Testing. For detailed Fit documentation, see http://fit.c2.com/.
+
+Flow of running tests with cobertura coverage from console:
+
+{{{
+> sh cobertura-instrument.sh --destination ../../target/generated-classes/cobertura 
+   --datafile ../../target/cobertura/cobertura.ser ../../target/classes
+}}}
+... run desired fitnesse tests from browser here...
+
+{{{
+> sh cobertura-report.sh --format html --datafile ../../target/cobertura/cobertura.ser
+   --destination ../../target/coverage-reports ../../src/main/java
+}}}
+
+You may include these collapsable instruction in each test page.

@@ -1,0 +1,24 @@
+  0:	proc  - (:root:) creates proc  0 (Hello)
+  0:	proc  - (:root:) creates proc  1 (:init:)
+spin: HelloWorld.pml:0, warning, proctype :init:, 'int   lastpid' variable is never used (other than in print stmnts)
+Hello, my pid is: 0
+  1:	proc  0 (Hello:1) HelloWorld.pml:4 (state 1)	[printf('Hello, my pid is: %d\\n',_pid)]
+
+***** init process, my pid is: 1
+  2:	proc  1 (:init::1) HelloWorld.pml:9 (state 1)	[printf('***** init process, my pid is: %d\\n',_pid)]
+
+Starting Hello with pid 2
+  3:	proc  1 (:init::1) creates proc  2 (Hello)
+  3:	proc  1 (:init::1) HelloWorld.pml:10 (state 2)	[lastpid = run Hello()]
+		:init:(1):lastpid = 2
+
+***** last pid was: 2
+  4:	proc  1 (:init::1) HelloWorld.pml:11 (state 3)	[printf('***** last pid was: %d\\n',lastpid)]
+
+Hello, my pid is: 2
+  5:	proc  2 (Hello:1) HelloWorld.pml:4 (state 1)	[printf('Hello, my pid is: %d\\n',_pid)]
+
+  5:	proc  2 (Hello:1) terminates
+  5:	proc  1 (:init::1) terminates
+  5:	proc  0 (Hello:1) terminates
+3 processes created

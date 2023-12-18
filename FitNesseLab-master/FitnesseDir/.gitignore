@@ -1,0 +1,12 @@
+/target/ 
+/bin/
+/FitnesseDir/FitNesseRoot/**/*.zip
+/FitnesseDir/FitNesseRoot/ErrorLogs/
+/FitnesseDir/FitNesseRoot/RecentChanges/ 
+/FitnesseDir/FitNesseRoot/RerunLastFailures.wiki
+/FitnesseDir/FitNesseRoot/RecentChanges.wiki
+/FitnesseDir/FitNesseRoot/files/  
+**/.DS_Store 
+!/FitnesseDir/fixturegallery*
+/.settings/
+

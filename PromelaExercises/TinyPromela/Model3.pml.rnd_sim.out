@@ -1,0 +1,38 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Sender)
+  1:	proc  0 (:init::1) Model3.pml:22 (state 1)	[(run Sender())]
+
+  2:	proc  1 (Sender:1) Model3.pml:5 (state -)	[values: 1!0]
+  2:	proc  1 (Sender:1) Model3.pml:5 (state 1)	[s2r!0]
+		queue 1 (s2r): [0]
+
+Starting Sender2 with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Sender2)
+  3:	proc  0 (:init::1) Model3.pml:23 (state 2)	[(run Sender2())]
+
+  4:	proc  2 (Sender2:1) Model3.pml:10 (state -)	[values: 1!0]
+  4:	proc  2 (Sender2:1) Model3.pml:10 (state 1)	[s2r!0]
+		queue 1 (s2r): [0][0]
+
+Starting Receiver with pid 3
+  5:	proc  0 (:init::1) creates proc  3 (Receiver)
+  5:	proc  0 (:init::1) Model3.pml:24 (state 3)	[(run Receiver())]
+		queue 1 (s2r): [0][0]
+
+  6:	proc  3 (Receiver:1) Model3.pml:16 (state -)	[values: 1?0]
+  6:	proc  3 (Receiver:1) Model3.pml:16 (state 1)	[s2r?0]
+		queue 1 (s2r): [0]
+
+  7:	proc  1 (Sender:1) Model3.pml:6 (state -)	[values: 1!1]
+  7:	proc  1 (Sender:1) Model3.pml:6 (state 2)	[s2r!1]
+		queue 1 (s2r): [0][1]
+
+timeout
+#processes: 4
+		queue 1 (s2r): [0][1]
+  7:	proc  3 (Receiver:1) Model3.pml:16 (state 2)
+  7:	proc  2 (Sender2:1) Model3.pml:11 (state 2)
+  7:	proc  1 (Sender:1) Model3.pml:7 (state 3)
+  7:	proc  0 (:init::1) Model3.pml:25 (state 4)
+4 processes created

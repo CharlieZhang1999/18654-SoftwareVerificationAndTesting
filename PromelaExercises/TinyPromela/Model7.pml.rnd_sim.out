@@ -1,0 +1,610 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Sender)
+  1:	proc  0 (:init::1) Model7.pml:62 (state 1)	[(run Sender(0,0))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+
+  2:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!0]
+  2:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0]
+		queue 1 (r2s): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+Starting Receiver with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Receiver)
+  3:	proc  0 (:init::1) Model7.pml:64 (state 2)	[(run Receiver())]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+
+  4:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?0]
+  4:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Receiver(2):received = 0
+
+  5:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+  6:	proc  2 (Receiver:1) Model7.pml:30 (state 2)	[(((received==0)&&(lastReceived!=0)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Receiver(2):received = 0
+
+  7:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+  8:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+  9:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 0
+		ones = 0
+		lastReceived = 2
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 10:	proc  2 (Receiver:1) Model7.pml:32 (state 3)	[zeros = (zeros+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 2
+		Receiver(2):received = 0
+ 11:	proc  2 (Receiver:1) Model7.pml:33 (state 4)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 12:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 13:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!1]
+ 13:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1]
+		queue 1 (r2s): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 14:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 15:	proc  2 (Receiver:1) Model7.pml:46 (state 16)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 16:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?1]
+ 16:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 17:	proc  2 (Receiver:1) Model7.pml:36 (state 6)	[(((received==1)&&(lastReceived!=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 0
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 18:	proc  2 (Receiver:1) Model7.pml:38 (state 7)	[ones = (ones+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 1
+ 19:	proc  2 (Receiver:1) Model7.pml:39 (state 8)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 20:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 21:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 22:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 23:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 24:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!0]
+ 24:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 25:	proc  2 (Receiver:1) Model7.pml:46 (state 16)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 26:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 27:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 28:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 29:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?0]
+ 29:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 0
+
+ 30:	proc  2 (Receiver:1) Model7.pml:30 (state 2)	[(((received==0)&&(lastReceived!=0)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 0
+
+ 31:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 1
+		ones = 1
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 32:	proc  2 (Receiver:1) Model7.pml:32 (state 3)	[zeros = (zeros+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 1
+		Receiver(2):received = 0
+ 33:	proc  2 (Receiver:1) Model7.pml:33 (state 4)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 34:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 35:	proc  2 (Receiver:1) Model7.pml:46 (state 16)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 36:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!1]
+ 36:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 37:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?1]
+ 37:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 38:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		queue 1 (r2s): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 39:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 40:	proc  2 (Receiver:1) Model7.pml:36 (state 6)	[(((received==1)&&(lastReceived!=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 1
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 41:	proc  2 (Receiver:1) Model7.pml:38 (state 7)	[ones = (ones+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 1
+ 42:	proc  2 (Receiver:1) Model7.pml:39 (state 8)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 43:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 44:	proc  2 (Receiver:1) Model7.pml:46 (state 16)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 45:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 46:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 47:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!0]
+ 47:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 48:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?0]
+ 48:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 0
+
+ 49:	proc  2 (Receiver:1) Model7.pml:30 (state 2)	[(((received==0)&&(lastReceived!=0)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 2
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 0
+
+ 50:	proc  2 (Receiver:1) Model7.pml:32 (state 3)	[zeros = (zeros+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 1
+		Receiver(2):received = 0
+ 51:	proc  2 (Receiver:1) Model7.pml:33 (state 4)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 52:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 53:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 54:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 55:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 56:	proc  2 (Receiver:1) Model7.pml:46 (state 16)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 0
+
+ 57:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 58:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!1]
+ 58:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1]
+		queue 1 (r2s): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 1
+
+ 59:	proc  2 (Receiver:1) Model7.pml:28 (state -)	[values: 2?1]
+ 59:	proc  2 (Receiver:1) Model7.pml:28 (state 1)	[s2r?received]
+		queue 2 (s2r): 
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 60:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 61:	proc  1 (Sender:1) Model7.pml:15 (state 6)	[(1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 62:	proc  2 (Receiver:1) Model7.pml:36 (state 6)	[(((received==1)&&(lastReceived!=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 2
+		lastReceived = 0
+		Receiver(2):received = 1
+
+ 63:	proc  2 (Receiver:1) Model7.pml:38 (state 7)	[ones = (ones+1)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 0
+		Receiver(2):received = 1
+ 64:	proc  2 (Receiver:1) Model7.pml:39 (state 8)	[lastReceived = received]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 65:	proc  2 (Receiver:1) Model7.pml:43 (state 14)	[assert((((zeros-ones)<=1)&&((ones-zeros)<=1)))]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Receiver(2):received = 1
+
+ 66:	proc  1 (Sender:1) Model7.pml:17 (state 8)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 67:	proc  1 (Sender:1) Model7.pml:19 (state 12)	[.(goto)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 68:	proc  1 (Sender:1) Model7.pml:12 (state -)	[values: 2!0]
+ 68:	proc  1 (Sender:1) Model7.pml:12 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Sender(1):id = 0
+		Sender(1):seq_out = 0
+
+ 69:	proc  1 (Sender:1) Model7.pml:15 (state 4)	[seq_out = (1-seq_out)]
+		finish[0] = 0
+		finish[1] = 0
+		zeros = 3
+		ones = 3
+		lastReceived = 1
+		Sender(1):id = 0

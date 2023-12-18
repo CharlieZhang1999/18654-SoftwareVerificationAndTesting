@@ -1,0 +1,8 @@
+!include .FitNesse.MyFitExamples.Calculator.CalculatorHeader
+
+
+| fit.calculator.CalculatorResult |
+| a | b| calculateSquare?   | calculatePower? | 
+| 2 | 5| 4   			    | 32          | 
+| -2| 5| 4 | -32     | 
+

@@ -1,0 +1,304 @@
+!1 Test Plan for NextDate Example
+
+!include .FitNesse.MyFitExamples.DateExample.DateHeader
+
+!2 Input Space Model: Attributes and Characteristics
+
+Explain...
+
+Input Space Model 1: Syntactic Validity
+
+| Comment |
+| Attributes |
+| Day | Month | Year |
+
+| Comment  |
+| Characteristics and Partitions |
+| Characteristic | Definition | Partition | Notes / Constraints |
+| DomainOf_Day | Relation of Day to 1..31 | Day < 1, Day = 1, Day = 2, Day = 3..29, Day = 30, Day = 31, Day > 31 | All stress boundary values. |
+| DomainOf_Month  | Relation of Month to 1..12 | Month < 1, Month = 1, Month = 2, Month = 3 .. 10, Month = 11, Month = 12, Month > 12 | All stress boundary values.|
+| DomainOf_Year  | Relation of Year to 1900..2200 | Year < 1900, Year = 1900, Year = 1901, Year = 1902..2198, Year = 2199, Year = 2200, Year > 2200 | All stress boundary values. |
+| ValidD | Validity of Day | Y,N | Y if 1 <= Day <= 31 else N |
+| ValidM | Validity of Month | Y,N | Y if 1 <= Month <= 12 else N |
+| ValidY | Validity of Year | Y,N | Y if 1900 <= Year <= 2200 else N |
+| Valid | Syntactic validtity of Date | Y,N | Y if ValidD == Y & ValidM == Y & ValidY == Y else N |
+
+
+Input Space Model 2: 30D Month
+
+| Comment |
+| Attributes |
+| Day | Month | Year |
+
+| Comment  |
+| Characteristics and Partitions |
+| Characteristic | Definition | Partition | Notes / Constraints |
+| DomainOf_Day | Relation of Day to 1..30 | Day = 1..28, Day = 29, Day = 30, Day = 31 | upper boundary values are more important. stress boundary values. |
+| DomainOf_Month  | Relation of Month to 4..9, 11 | Month = 4..9, Month = 11 | upper boundary values are more important. stress boundary values.|
+| DomainOf_Year  | Relation of Year to 1900..2200 | Year = 1900..2200 | No year rollover |
+| MonthT | Type of Month | 30D | Month should all be those 30D months |
+| Valid | Validtity of Date in 30D months | Y,N | Y if Day <= 30 else N |
+
+Input Space Model 3: 31D Month
+
+| Comment |
+| Attributes |
+| Day | Month | Year |
+
+| Comment  |
+| Characteristics and Partitions |
+| Characteristic | Definition | Partition | Notes / Constraints |
+| DomainOf_Day | Relation of Day to 1..31 | Day = 1..29, Day = 30, Day = 31, Day = 32 | upper boundary values are more important. stress boundary values. |
+| DomainOf_Month  | Relation of Month to 1, 3..10, 12 | Month = 1, Month = 3..10, Month = 12 | upper boundary values are more important. stress boundary values.|
+| DomainOf_Year  | Relation of Year to 1900..2200 | Year = 1900..2200 | No year rollover |
+| MonthT | Type of Month | 31D | Month should all be those 31D months |
+| Valid | Validtity of Date in 31D months | Y,N | Y if Day <= 31 else N |
+
+Input Space Model 3: Feb
+
+| Comment |
+| Attributes |
+| Day | Month | Year |
+
+| Comment  |
+| Characteristics and Partitions |
+| Characteristic | Definition | Partition | Notes / Constraints |
+| DomainOf_Day | Relation of Day to 1..28 | Day = 1..26, Day = 27, Day = 28, Day = 29, Day = 30 | upper boundary values are more important. stress boundary values. |
+| DomainOf_Month  | Relation of Month to 2 | Month = 2 | upper boundary values are more important. stress boundary values.|
+| DomainOf_Year  | Relation of Year to 1900..2200 | Year = 1900..2200 | No year rollover |
+| MonthT | Type of Month | Feb | Month should all be Feburary |
+| LeapY | Is Leap Year | Y,N | Y if Year is leap year else F |
+| CentY | Is Century Year | Y,N | Y if Year is century year else F |
+| Valid | Validtity of Date in Feb | Y,N | Y if Day <= 28 or Day == 29 & LeapY else N |
+
+
+
+!2 Test Design Strategy
+
+List steps/elements of your strategy. For each step, create a test case spec using a proper combinatorial strategy. 
+use tables for test case specs, like this...
+1. Test validity with respect to Day, Month, Year values. Apply Base-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year, with Day = 3..29, Month = 3..10, Year = 1902..2198 being the base case. Using robust lower boundry values only.
+2. Assume the date is syntactic valid and the month is a 30D month. Test validty with respect to Day, Month, Year values. Apply All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year.
+3. Assume the date is syntactic valid and the month is a 31D month. Test validty with respect to Day, Month, Year values. Apply All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year.
+4. Assume the date is syntactic valid and the month is Feburary. Test validty with respect to Day, Month, Year values. Apply All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year.
+
+!2 Step 1: Test Case Specs
+
+
+| Comment: For Input Space Model 1 |
+| Combinations: Base-Choice combinations for DomainOf_Day, DomainOf_Month, DomainOf_Year for Validity|
+| Case | DomainOf_Day| DomainOf_Month | DomainOf_Year | ValidD | ValidM | ValidY | Valid | Variation  | 
+|  1.1 BC   |  3...29      | 3..10      | 1902..2198     |  Y   |  Y   |  Y   |  Y  | Base Case |
+|  1.2 Vary Year   |  3...29      | 3..10      | < 1900     |  Y   |  Y   |  N   | N  | Vary Year |
+|  1.3 Vary Year   |  3...29      | 3..10      | 1900     |  Y   |  Y   |  Y   | Y  | Vary Year |
+|  1.4 Vary Year   |  3...29      | 3..10      | 1901     |  Y   |  Y   |  Y   | Y  | Vary Year |
+|  1.5 Vary Year   |  3...29      | 3..10      | 2199     |  Y   |  Y   |  Y   | Y  | Vary Year |
+|  1.6 Vary Year   |  3...29      | 3..10      | 2200     |  Y   |  Y   |  Y   | Y  | Vary Year |
+|  1.7 Vary Year   |  3...29      | 3..10      | > 2200     |  Y   |  Y   |  N   | N  | Vary Year |
+|  1.8 Vary Month   |  3...29      | < 1      | 1902..2198     |  Y   |  N   |  Y   | N  | Vary Month |
+|  1.9 Vary Month   |  3...29      |   1      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Month |
+|  1.10 Vary Month   |  3...29      |   2      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Month |
+|  1.11 Vary Month   |  3...29      |   11      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Month |
+|  1.12 Vary Month   |  3...29      |   12      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Month |
+|  1.13 Vary Month   |  3...29      |   > 12      | 1902..2198     |  Y   |  N   |  Y   | N  | Vary Month |
+|  1.14 Vary Day   |  < 1      |   3..10      | 1902..2198     |  N   |  Y   |  Y   | N  | Vary Day |
+|  1.15 Vary Day   |  1      |   3..10      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Day |
+|  1.16 Vary Day   |  2      |   3..10      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Day |
+|  1.17 Vary Day   |  30      |   3..10      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Day |
+|  1.18 Vary Day   |  31      |   3..10      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Day |
+|  1.19 Vary Day   |  > 31    |   3..10      | 1902..2198     |  Y   |  Y   |  Y   | Y  | Vary Day |
+
+
+
+!2 Step 2: Test Case Spec
+
+
+| Comment: For Input Space Model 2 |
+| Combinations: All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year, MonthT for Validity |
+| Case | DomainOf_Day| DomainOf_Month | DomainOf_Year | MonthT | Valid |
+|  2.1 | 1..28      | 4..9       | 1900..2200       |  30D   |  Y  |  
+|  2.2 | 29     | 4..9       | 1900..2200       |  30D   |  Y  |  
+|  2.3 | 30      | 4..9       | 1900..2200       |  30D   |  Y  |  
+|  2.4 | 31      | 4..9       | 1900..2200       |  30D   |  N  |  
+|  2.5 | 1..28   | 11       | 1900..2200       |  30D   |  Y  | 
+|  2.6 | 29   | 11       | 1900..2200       |  30D   |  Y  | 
+|  2.7 | 30   | 11       | 1900..2200       |  30D   |  Y  | 
+|  2.8 | 31   | 11       | 1900..2200       |  30D   |  N  | 
+
+
+!2 Step 3: Test Case Spec
+
+
+| Comment:  For Input Space Model 3 |
+| Combinations: All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year, MonthT for Validity |
+| Case | DomainOf_Day| DomainOf_Month | DomainOf_Year | MonthT | Valid |
+|  3.1 | 1..29      | 	1      | 1900..2199       |  31D   |  Y  |  
+|  3.2 | 30      | 	1      | 1900..2199       |  31D   |  Y  | 
+|  3.3 | 31      | 	1      | 1900..2199       |  31D   |  Y  |  
+|  3.4 | 32      | 	1      | 1900..2199       |  31D   |  N  |  
+|  3.5 | 1..29      | 	3..10      | 1900..2199       |  31D   |  Y  | 
+|  3.6 | 30      | 	3..10      | 1900..2199       |  31D   |  Y  | 
+|  3.7 | 31      | 	3..10      | 1900..2199       |  31D   |  Y  | 
+|  3.8 | 32      | 	3..10      | 1900..2199       |  31D   |  N  | 
+|  3.9 | 1..29      | 	12      | 1900..2199       |  31D   |  Y  | 
+|  3.10 | 30      | 	12      | 1900..2199       |  31D   |  Y  | 
+|  3.11 | 31      | 	12      | 1900..2199       |  31D   |  Y  | 
+|  3.12 | 32      | 	12      | 1900..2199       |  31D   |  N  | 
+|  3.13 | 1..29      | 	1      | 2200       |  31D   |  Y  |  
+|  3.14 | 30      | 	1      | 2200       |  31D   |  Y  | 
+|  3.15 | 31      | 	1      | 2200       |  31D   |  Y  |  
+|  3.16 | 32      | 	1      | 2200       |  31D   |  N  |  
+|  3.17 | 1..29      | 	3..10      | 2200       |  31D   |  Y  | 
+|  3.18 | 30      | 	3..10      | 2200       |  31D   |  Y  | 
+|  3.19 | 31      | 	3..10      | 2200       |  31D   |  Y  | 
+|  3.20 | 32      | 	3..10      | 2200       |  31D   |  N  | 
+|  3.21 | 1..29      | 	12      | 2200       |  31D   |  Y  | 
+|  3.22 | 30      | 	12      | 2200       |  31D   |  Y  | 
+|  3.23 | 31      | 	12      | 2200       |  31D   |  N  | 
+|  3.24 | 32      | 	12      | 2200       |  31D   |  N  | 
+
+
+!2 Step 4: Test Case Spec
+
+
+| Comment: For Input Space Model 4  |
+| Combinations:  All-Choice for DomainOf_Day, DomainOf_Month, DomainOf_Year, MonthT, LeapY, CentY for Validity|
+| Case | DomainOf_Day| DomainOf_Month | DomainOf_Year | MonthT | LeapY | CentY |  Valid |
+|  4.1 | 1..26      | 	2     | 1900..2200       |  Feb   |  Y  |   Y  |  Y  | 
+|  4.2 | 27      | 	2     | 1900..2200       |  Feb   |  Y  |   Y  |  Y  | 
+|  4.3 | 28      | 	2     | 1900..2200       |  Feb   |  Y  |   Y  |  Y  | 
+|  4.4 | 29      | 	2     | 1900..2200       |  Feb   |  Y  |   Y  |  Y  |  
+|  4.5 | 30      | 	2     | 1900..2200       |  Feb   |  Y  |   Y  |  N  |
+|  4.6 | 1..26      | 	2     | 1900..2200       |  Feb   |  N  |   Y  |  Y  | 
+|  4.7 | 27      | 	2     | 1900..2200       |  Feb   |  N  |   Y  |  Y  | 
+|  4.8 | 28      | 	2     | 1900..2200       |  Feb   |  N  |   Y  |  Y  | 
+|  4.9 | 29      | 	2     | 1900..2200       |  Feb   |  N  |   Y  |  N  |  
+|  4.10 | 30      | 	2     | 1900..2200       |  Feb   |  N  |   Y  |  N  |
+|  4.11 | 1..26      | 	2     | 1900..2200       |  Feb   |  Y  |   N  |  Y  | 
+|  4.12 | 27      | 	2     | 1900..2200       |  Feb   |  Y  |   N  |  Y  | 
+|  4.13 | 28      | 	2     | 1900..2200       |  Feb   |  Y  |   N  |  Y  | 
+|  4.14 | 29      | 	2     | 1900..2200       |  Feb   |  Y  |   N  |  Y  |  
+|  4.15 | 30      | 	2     | 1900..2200       |  Feb   |  Y  |   N  |  N  |
+|  4.16 | 1..26      | 	2     | 1900..2200       |  Feb   |  N  |   N  |  Y  | 
+|  4.17 | 27      | 	2     | 1900..2200       |  Feb   |  N  |   N  |  Y  | 
+|  4.18 | 28      | 	2     | 1900..2200       |  Feb   |  N  |   N  |  Y  | 
+|  4.19 | 29      | 	2     | 1900..2200       |  Feb   |  N  |   N  |  N  |  
+|  4.20 | 30      | 	2     | 1900..2200       |  Feb   |  N  |   N  |  N  |
+
+
+
+!3 Test Cases
+
+I choose the best practice to reduce redundant test cases. 
+As you can see, many case share more than one resource. 
+Take Case 1 as an example: it covers both test spec 1.1 and 2.1. Consequently, there's no need for a separate case solely dedicated to test spec 2.1.
+
+
+| fit.date.NextDate|
+|      |           | day  | month  | year  | nextDate?  | isLeapYear? |
+| Case | Source    |                                                  |
+|  1   |  1.1, 2.1       | 28    | 4      | 2000  | 29/4/2000   | true        |
+|  2   | 1.2        | 28    | 4      | 1899  | error   | error        |
+|  3   | 1.3        | 28    | 4      | 1900  | 29/4/1900   | false        |
+|  4   | 1.4        | 28    | 4      | 1901  | 29/4/1901   | false        |
+|  5   | 1.5        | 28    | 4      | 2199  | 29/4/2199   | false        |
+|  6   | 1.6        | 28    | 4      | 2200  | 29/4/2200   | false        |
+|  7   | 1.7        | 28    | 4      | 2201  | error   | error       |
+|  8   | 1.8        | 28    | 0      | 1900  | error   | error       |
+|  9   | 1.9, 3.1        | 28    | 1      | 1902  | 29/1/1902   | false      |
+|  10   | 1.10, 4.18        | 28    | 2      | 1902  | 1/3/1902   | false      |
+|  11   | 1.11, 2.5       | 28    | 11      | 1902  | 29/11/1902   | false      |
+|  12   | 1.12      | 28    | 12      | 1902  | 29/12/1902   | false      |
+|  13   | 1.13      | 28    | 13      | 1902  | error   | error      |
+|  14   | 1.14      | 0    | 4      | 1902  | error   | error      |
+|  15   | 1.15, 2.1     | 1    | 4      | 1902  | 2/4/1902   | false      |
+|  16   | 1.16, 2.1      | 2    | 4      | 1902  | 3/4/1902   | false      |
+|  17   | 1.17, 2.3      | 30    | 4      | 1902  | 1/5/1902   | false      |
+|  18   | 1.18, 2.4     | 31    | 4      | 1902  | error   | error      |
+|  19   | 1.19     | 32    | 4      | 1902  | error   | error      |
+|  20   | 2.2     | 29    | 4      | 1902  | 30/4/1902   | false      |
+|  21   | 2.5     | 1    | 11      | 1902  | 2/11/1902   | false      |
+|  22   | 2.6     | 29    | 11      | 1902  | 30/11/1902   | false      |
+|  23   | 2.7     | 30    | 11      | 1902  | 1/12/1902   | false      |
+|  24   | 2.8     | 31    | 11      | 1902  | error   | error      |
+|  25   | 3.2     | 30    | 1      | 1902  | 31/1/1902   | false      |
+|  26   | 3.3     | 31    | 1      | 1902  | 1/2/1902   | false      |
+|  27   | 3.4     | 32    | 1      | 1902  | error   | error      |
+|  28   | 3.5     | 29    | 3      | 1902  | 30/3/1902   | false      |
+|  29   | 3.6     | 30    | 3      | 1902  | 31/3/1902   | false      |
+|  30   | 3.7     | 31    | 3      | 1902  | 1/4/1902   | false      |
+|  31   | 3.8     | 32    | 3      | 1902  | error   | error      |
+|  32   | 3.9     | 29    | 12      | 1902  | 30/12/1902   | false      |
+|  33   | 3.10     | 30    | 12      | 1902  | 31/12/1902   | false      |
+|  34  | 3.11     | 31    | 12      | 1902  | 1/1/1903   | false      |
+|  35  | 3.12     | 32    | 12      | 1902  | error   | error      |
+|  36  | 3.13     | 29    | 1      | 2200  | 30/1/2200   | false      |
+|  37  | 3.14     | 30    | 1      | 2200  | 31/1/2200   | false      |
+|  38  | 3.15     | 31    | 1      | 2200  | 1/2/2200   | false      |
+|  39  | 3.16     | 32    | 1      | 2200  | error   | error      |
+|  40  | 3.17     | 29    | 10      | 2200  | 30/10/2200   | false      |
+|  41  | 3.18     | 30    | 10      | 2200  | 31/10/2200   | false      |
+|  42  | 3.19     | 31    | 10      | 2200  | 1/11/2200   | false      |
+|  43  | 3.20     | 32    | 10      | 2200  | error   | error     |
+|  43  | 3.21     | 29    | 12      | 2200  | 30/12/2200   | false     |
+|  44  | 3.22     | 30    | 12      | 2200  | 31/12/2200   | false     |
+|  45  | 3.23     | 31    | 12      | 2200  | error   | false     |
+|  46  | 3.24     | 32    | 12      | 2200  | error   | error     |
+|  47  | 4.1     | 1    | 2      | 2000  | 2/2/2000   | true     |
+|  48  | 4.2     | 27    | 2      | 2000  | 28/2/2000   | true     |
+|  49  | 4.3     | 28    | 2      | 2000  | 29/2/2000   | true     |
+|  50  | 4.4     | 29    | 2      | 2000  | 1/3/2000   | true     |
+|  51  | 4.5     | 30    | 2      | 2000  | error   | error    |
+|  52  | 4.6     | 26    | 2      | 1900  | 27/2/1900   | false    |
+|  53  | 4.7     | 27    | 2      | 1900  | 28/2/1900   | false    |
+|  54  | 4.8     | 28    | 2      | 1900  | 1/3/1900   | false    |
+|  55  | 4.9     | 29    | 2      | 1900  | error   | error    |
+|  56  | 4.10     | 30    | 2      | 1900  | error   | error    |
+|  57  | 4.11     | 26    | 2      | 2004  | 27/2/2004   | true    |
+|  58  | 4.12     | 27    | 2      | 2004  | 28/2/2004   | true    |
+|  59  | 4.13     | 28    | 2      | 2004  | 29/2/2004   | true    |
+|  60  | 4.14     | 29    | 2      | 2004  | 1/3/2004   | true    |
+|  61  | 4.15     | 30    | 2      | 2004  | error   | error   |
+|  62  | 4.16     | 26    | 2      | 1999  | 27/2/1999   | false   |
+|  63  | 4.17     | 27    | 2      | 1999  | 28/2/1999   | false   |
+|  64  | 4.18     | 28    | 2      | 1999  | 1/3/1999   | false   |
+|  65  | 4.19     | 29    | 2      | 1999  | error   | error   |
+|  66  | 4.20     | 30    | 2      | 1999  | error   | error   |
+
+
+
+
+
+!4 Report
+
+LAB REPORT - Test Design Exercises
+
+Name: Qiuyang Zhang
+Andrew ID: qiuyangz
+
+
+
+Faults Found:
+
+One fault I discovered pertains to the expected result for the next date of 31/12/2200. The expected result should have been marked as invalid because '2201' falls outside the acceptable range. However, the actual result returned was 01/01/2201.
+
+
+Coverage:
+
+Not required
+
+
+Insights: 
+
+From this lab, I learned the significant importance of constructing a comprehensive input space model and creating a thorough test specification. This process proved to be valuable and well worth the time invested.
+
+The process of deriving test case specifications was a smooth and enjoyable experience. However, the real challenge lay in the creation of the input space model. Identifying the appropriate partitions and blocks was not a straightforward task. Fortunately, we covered this aspect in our class sessions, which proved to be really helpful.
+
+The testing strategy and test cases I employed were effective, successfully uncovering a fault. 
+
+
+Suggestions(Optional): 
+
+I encountered a brief issue during the setup phase when running "mvn compile" because I initially did it in the wrong directory. However, apart from that, the instructions and procedures were generally straightforward.
+
+

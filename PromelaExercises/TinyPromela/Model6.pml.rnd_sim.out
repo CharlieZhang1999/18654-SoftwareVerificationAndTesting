@@ -1,0 +1,170 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+Starting Sender with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Sender)
+  1:	proc  0 (:init::1) Model6.pml:55 (state 1)	[(run Sender(0))]
+
+  2:	proc  1 (Sender:1) Model6.pml:9 (state -)	[values: 2!0]
+  2:	proc  1 (Sender:1) Model6.pml:9 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0]
+		queue 1 (r2s): 
+		Sender(1):seq_out = 0
+
+Starting Sender with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Sender)
+  3:	proc  0 (:init::1) Model6.pml:56 (state 2)	[(run Sender(0))]
+
+  4:	proc  2 (Sender:1) Model6.pml:9 (state -)	[values: 2!0]
+  4:	proc  2 (Sender:1) Model6.pml:9 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [0][0]
+		queue 1 (r2s): 
+		Sender(2):seq_out = 0
+
+  5:	proc  1 (Sender:1) Model6.pml:12 (state 4)	[seq_out = (1-seq_out)]
+		Sender(1):seq_out = 1
+
+Starting Receiver with pid 3
+  6:	proc  0 (:init::1) creates proc  3 (Receiver)
+  6:	proc  0 (:init::1) Model6.pml:57 (state 3)	[(run Receiver())]
+
+  7:	proc  3 (Receiver:1) Model6.pml:23 (state -)	[values: 2?0]
+  7:	proc  3 (Receiver:1) Model6.pml:23 (state 1)	[s2r?0]
+		queue 2 (s2r): [0]
+		Receiver(3):received = 0
+
+  8:	proc  1 (Sender:1) Model6.pml:12 (state 5)	[(1)]
+		Sender(1):seq_out = 1
+
+  9:	proc  3 (Receiver:1) Model6.pml:32 (state 12)	[.(goto)]
+		Receiver(3):received = 0
+
+ 10:	proc  1 (Sender:1) Model6.pml:14 (state 7)	[.(goto)]
+		Sender(1):seq_out = 1
+
+ 11:	proc  2 (Sender:1) Model6.pml:12 (state 4)	[seq_out = (1-seq_out)]
+		queue 1 (r2s): 
+		Sender(2):seq_out = 1
+
+ 12:	proc  3 (Receiver:1) Model6.pml:25 (state -)	[values: 2?0]
+ 12:	proc  3 (Receiver:1) Model6.pml:25 (state 2)	[s2r?0]
+		queue 2 (s2r): 
+		Receiver(3):received = 0
+
+ 13:	proc  1 (Sender:1) Model6.pml:16 (state 11)	[.(goto)]
+		Sender(1):seq_out = 1
+
+ 14:	proc  2 (Sender:1) Model6.pml:12 (state 5)	[(1)]
+		Sender(2):seq_out = 1
+
+ 15:	proc  1 (Sender:1) Model6.pml:9 (state -)	[values: 2!1]
+ 15:	proc  1 (Sender:1) Model6.pml:9 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1]
+		Sender(1):seq_out = 1
+
+ 16:	proc  2 (Sender:1) Model6.pml:14 (state 7)	[.(goto)]
+		Sender(2):seq_out = 1
+
+ 17:	proc  2 (Sender:1) Model6.pml:16 (state 11)	[.(goto)]
+		Sender(2):seq_out = 1
+
+ 18:	proc  1 (Sender:1) Model6.pml:12 (state 4)	[seq_out = (1-seq_out)]
+		Sender(1):seq_out = 0
+
+ 19:	proc  3 (Receiver:1) Model6.pml:25 (state 3)	[goto :b1]
+		Receiver(3):received = 0
+
+ 20:	proc  2 (Sender:1) Model6.pml:9 (state -)	[values: 2!1]
+ 20:	proc  2 (Sender:1) Model6.pml:9 (state 1)	[s2r!seq_out]
+		queue 2 (s2r): [1][1]
+		Sender(2):seq_out = 1
+
+ 21:	proc  3 (Receiver:1) Model6.pml:43 (state -)	[values: 1!ERR]
+ 21:	proc  3 (Receiver:1) Model6.pml:43 (state 29)	[r2s!ERR]
+		queue 1 (r2s): [ERR]
+		Receiver(3):received = 0
+
+ 22:	proc  1 (Sender:1) Model6.pml:12 (state 5)	[(1)]
+		Sender(1):seq_out = 0
+
+ 23:	proc  1 (Sender:1) Model6.pml:14 (state 7)	[.(goto)]
+		Sender(1):seq_out = 0
+
+ 24:	proc  3 (Receiver:1) Model6.pml:44 (state -)	[values: 1!ERR]
+ 24:	proc  3 (Receiver:1) Model6.pml:44 (state 30)	[r2s!ERR]
+		queue 1 (r2s): [ERR][ERR]
+		Receiver(3):received = 0
+
+ 25:	proc  1 (Sender:1) Model6.pml:16 (state 11)	[.(goto)]
+		Sender(1):seq_out = 0
+
+ 26:	proc  1 (Sender:1) Model6.pml:14 (state -)	[values: 1?ERR]
+ 26:	proc  1 (Sender:1) Model6.pml:14 (state 8)	[r2s?ERR]
+		queue 1 (r2s): [ERR]
+		Sender(1):seq_out = 0
+
+ 27:	proc  1 (Sender:1) Model6.pml:14 (state 9)	[goto :b0]
+		Sender(1):seq_out = 0
+
+ 28:	proc  2 (Sender:1) Model6.pml:12 (state 4)	[seq_out = (1-seq_out)]
+		Sender(2):seq_out = 0
+
+ 29:	proc  2 (Sender:1) Model6.pml:12 (state 5)	[(1)]
+		Sender(2):seq_out = 0
+
+ 30:	proc  2 (Sender:1) Model6.pml:14 (state 7)	[.(goto)]
+		Sender(2):seq_out = 0
+
+ 31:	proc  2 (Sender:1) Model6.pml:16 (state 11)	[.(goto)]
+		Sender(2):seq_out = 0
+
+ 32:	proc  2 (Sender:1) Model6.pml:14 (state -)	[values: 1?ERR]
+ 32:	proc  2 (Sender:1) Model6.pml:14 (state 8)	[r2s?ERR]
+		queue 2 (s2r): [1][1]
+		queue 1 (r2s): 
+		Sender(2):seq_out = 0
+
+ 33:	proc  2 (Sender:1) Model6.pml:14 (state 9)	[goto :b0]
+		Sender(2):seq_out = 0
+
+timeout
+ 34:	proc  3 (Receiver:1) Model6.pml:45 (state 31)	[(timeout)]
+		Receiver(3):received = 0
+
+ 35:	proc  3 (Receiver:1) Model6.pml:48 (state 32)	[received = 0]
+		Receiver(3):received = 0
+
+ 36:	proc  3 (Receiver:1) Model6.pml:52 (state 38)	[.(goto)]
+		Receiver(3):received = 0
+
+ 37:	proc  3 (Receiver:1) Model6.pml:49 (state 33)	[((len(s2r)>0))]
+		Receiver(3):received = 0
+
+ 38:	proc  3 (Receiver:1) Model6.pml:49 (state -)	[values: 2?1]
+ 38:	proc  3 (Receiver:1) Model6.pml:49 (state 34)	[s2r?received]
+		queue 2 (s2r): [1]
+		Receiver(3):received = 1
+
+ 39:	proc  3 (Receiver:1) Model6.pml:52 (state 38)	[.(goto)]
+		Receiver(3):received = 1
+
+ 40:	proc  3 (Receiver:1) Model6.pml:49 (state 33)	[((len(s2r)>0))]
+		Receiver(3):received = 1
+
+ 41:	proc  3 (Receiver:1) Model6.pml:49 (state -)	[values: 2?1]
+ 41:	proc  3 (Receiver:1) Model6.pml:49 (state 34)	[s2r?received]
+		queue 2 (s2r): 
+		Receiver(3):received = 1
+
+ 42:	proc  3 (Receiver:1) Model6.pml:52 (state 38)	[.(goto)]
+		Receiver(3):received = 1
+
+ 43:	proc  3 (Receiver:1) Model6.pml:50 (state 35)	[((len(s2r)==0))]
+		Receiver(3):received = 1
+
+ 44:	proc  3 (Receiver:1) Model6.pml:50 (state 36)	[goto :b3]
+		Receiver(3):received = 1
+
+ 44:	proc  3 (Receiver:1) terminates
+ 44:	proc  2 (Sender:1) terminates
+ 44:	proc  1 (Sender:1) terminates
+ 44:	proc  0 (:init::1) terminates
+4 processes created

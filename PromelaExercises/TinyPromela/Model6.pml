@@ -1,0 +1,58 @@
+
+chan s2r = [2] of { bit }	
+mtype = { ERR }
+chan r2s = [2] of { mtype }	
+
+
+proctype Sender(byte seq_out) {
+   do
+	   :: s2r!seq_out ->
+	   		if
+	   		:: r2s?ERR -> break;
+	   		:: seq_out = 1 - seq_out -> skip; 
+	   		fi;
+	   	::r2s?ERR -> break;
+   od
+}
+
+
+
+proctype Receiver() {
+
+   if
+   ::s2r?0	-> 
+   		do
+   		::s2r?0 -> break;
+   		::s2r?1 -> 
+   				if 
+   				:: s2r?0 -> skip
+   				:: s2r?1 -> break;
+   				fi
+   		od;
+   	::s2r?1 ->
+   		do
+   		::s2r?1 -> break;
+   		::s2r?0 -> 
+   				if 
+   				:: s2r?1 -> skip;
+   				:: s2r?0 -> break;
+   				fi
+   		od
+   	fi
+   	
+   	r2s!ERR;
+   	r2s!ERR;   	
+   	timeout;
+   	bit received;
+   	
+	do
+   	:: len(s2r) > 0 -> s2r?received;
+   	:: len(s2r) == 0 -> break;
+   	od
+}
+
+init {
+	run Sender(0);
+	run Sender(0);
+	run Receiver();
+}

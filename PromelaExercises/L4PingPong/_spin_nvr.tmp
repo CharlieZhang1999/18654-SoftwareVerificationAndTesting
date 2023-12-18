@@ -1,0 +1,74 @@
+never alwaysEventuallyGameOn {    /* !([] (<> (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1)))) */
+T0_init:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1)))) -> goto accept_S4
+	od;
+}
+never alwaysAtMostTwoBalls {    /* !([] (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])<=2))) */
+T0_init:
+	do
+	:: atomic { (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])<=2)))) -> assert(!(! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])<=2))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never alwaysEventuallyTwoBalls {    /* !((! (<> ([] (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))))) || ([] (<> (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))))) */
+T0_init:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) && (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto accept_S44
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2)))) -> goto T0_S23
+	:: ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto T0_S48
+	:: (1) -> goto T0_init
+	od;
+accept_S44:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) && (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto accept_S44
+	od;
+T0_S23:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) && (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto accept_S44
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2)))) -> goto T0_S23
+	od;
+T0_S48:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) && (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto accept_S44
+	:: ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) -> goto T0_S48
+	od;
+}
+never notEventuallyAlwaysGameOn_FAIL {    /* !(! (<> ([] (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))))) */
+T0_init:
+	do
+	:: ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])==2))) -> goto accept_S4
+	od;
+}
+never notPossiblyAllBallsAreDropped_FAIL {    /* !(<> ([] (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1)))) */
+T0_init:
+	do
+	:: (! ((((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1)))) -> goto accept_S9
+	:: (1) -> goto T0_init
+	od;
+accept_S9:
+	do
+	:: (1) -> goto T0_init
+	od;
+}
+never alwaysDifferentColors {    /* !([] ((! (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) || (((getBallsWithPlayer[0]<=1)) && ((getBallsWithPlayer[1]<=1))))) */
+T0_init:
+	do
+	:: atomic { (! (((! (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) || (((getBallsWithPlayer[0]<=1)) && ((getBallsWithPlayer[1]<=1)))))) -> assert(!(! (((! (((((len(ptoP[0])+len(ptoP[1]))+getBallsWithPlayer[0])+getBallsWithPlayer[1])>=1))) || (((getBallsWithPlayer[0]<=1)) && ((getBallsWithPlayer[1]<=1))))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}

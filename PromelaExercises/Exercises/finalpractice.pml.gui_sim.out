@@ -1,0 +1,922 @@
+ltl initialState_INIT: ((! (PL:walk)) && (VL:red)) && (! (push))
+ltl safePedestrian: [] ((! (PL:walk)) || (VL:red))
+ltl pedestrianCanCross: [] ((! (push)) || (<> (PL:walk)))
+ltl redStrictlyBeforeWalk: (! (! (PL:walk))) || ((! (PL:walk)) U ((VL:red) && (! (PL:walk))))
+spin: finalpractice.pml:0, warning, proctype PL, 'bit   walk' variable is never used (other than in print stmnts)
+spin: finalpractice.pml:0, warning, proctype VL, 'bit   red' variable is never used (other than in print stmnts)
+starting claim 4
+MSC: ~G line 13
+  1:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+Never claim moves to line 13	[(1)]
+  2:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+		queue 1 (pedchan): 
+
+  3:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+  4:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+  5:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+  6:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+  6:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB]
+
+  7:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+  8:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+  9:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 10:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 11:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 12:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 12:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+ 13:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 14:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+ 15:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 16:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 17:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 18:	proc  1 (VL:1) finalpractice.pml:37 (state 6)	[((len(vlchan)==0))]
+		queue 3 (vlchan): 
+
+ 19:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 20:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+ 20:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+ 21:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 22:	proc  1 (VL:1) finalpractice.pml:37 (state 7)	[(1)]
+
+ 23:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 24:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 24:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+ 25:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 26:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+ 27:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 28:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 29:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 30:	proc  1 (VL:1) finalpractice.pml:37 (state 6)	[((len(vlchan)==0))]
+
+ 31:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 32:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+ 32:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+ 33:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 34:	proc  1 (VL:1) finalpractice.pml:37 (state 7)	[(1)]
+
+ 35:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 36:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+ 36:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): 
+
+ 37:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 38:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+ 39:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 40:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+ 40:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+ 41:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 42:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 42:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+ 43:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 44:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+ 45:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 46:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 47:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 48:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+ 48:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+ 49:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 50:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+ 50:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+ 51:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 52:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 52:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+ 53:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 54:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+ 55:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 56:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 57:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 58:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+ 58:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+ 59:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 60:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+ 60:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+ 61:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 62:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+ 62:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+ 63:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 64:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+ 64:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+ 65:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 66:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+ 67:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 68:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+ 68:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+ 69:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 70:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+ 70:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [CANWALK]
+
+ 71:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 72:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+ 72:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+ 73:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 74:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+ 74:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+ 75:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 76:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+ 77:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 78:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+ 78:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+ 79:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 80:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+ 80:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+ 81:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 82:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+ 83:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 84:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 84:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [CANWALK][RB]
+
+ 85:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 86:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+ 87:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 88:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+ 89:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 90:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+ 90:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+ 91:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 92:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+ 92:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [RB]
+
+ 93:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 94:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+ 95:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 96:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+ 96:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+ 97:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+ 98:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+ 98:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+ 99:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+100:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+101:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+102:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+103:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+104:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+105:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+106:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+106:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+107:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+108:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+108:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+109:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+110:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+110:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+111:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+112:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+112:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+113:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+114:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+115:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+116:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+116:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+117:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+118:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+118:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [CANWALK]
+
+119:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+120:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+120:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+121:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+122:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+122:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+123:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+124:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+125:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+126:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+126:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+127:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+128:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+128:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+129:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+130:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+131:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+132:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+132:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [CANWALK][RB]
+
+133:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+134:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+134:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+135:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+136:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+137:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+138:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+139:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+140:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+140:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+141:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+142:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+142:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [RB]
+
+143:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+144:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+145:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+146:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+146:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+147:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+148:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+149:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+150:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+150:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+151:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+152:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+153:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+154:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+154:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK][CANWALK]
+
+155:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+156:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+156:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [CANWALK]
+
+157:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+158:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+158:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [CANWALK][RB]
+
+159:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+160:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+160:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+161:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+162:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+163:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+164:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+164:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+165:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+166:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+
+167:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+168:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+169:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+170:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+171:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+172:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+172:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+173:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+174:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+174:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [RB]
+
+175:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+176:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+177:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+178:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+178:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+179:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+180:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+181:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+182:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+182:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+183:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+184:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+184:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+185:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+186:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+186:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+187:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+188:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+188:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+189:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+190:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+191:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+192:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+192:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+193:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+194:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+194:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [CANWALK]
+
+195:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+196:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+196:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+197:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+198:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+198:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+199:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+200:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+201:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+202:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+202:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+203:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+204:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+204:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+205:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+206:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+207:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+208:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+208:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+209:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+210:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+211:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+212:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+212:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+213:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+214:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+215:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+216:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+216:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK][CANWALK]
+
+217:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+218:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+218:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+219:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+220:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+221:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+222:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+222:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [CANWALK][RB]
+
+223:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+224:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+224:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+225:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+226:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+227:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+228:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+228:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+229:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+230:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+
+231:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+232:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+233:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+234:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+235:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+236:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+236:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+237:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+238:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+238:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [RB]
+
+239:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+240:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+241:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+242:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+242:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+243:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+244:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+244:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+245:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+246:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+247:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+248:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+249:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+250:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+251:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+252:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+252:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+253:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+254:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+254:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+255:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+256:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+256:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+257:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+258:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+258:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+259:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+260:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+261:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+262:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+263:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+264:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+265:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+266:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+266:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+267:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+268:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+268:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+269:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+270:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+270:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+271:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+272:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+272:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+273:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+274:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+275:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+276:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+276:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+277:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+278:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+278:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [CANWALK]
+
+279:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+280:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+280:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+281:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+282:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+282:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+283:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+284:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+285:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+286:	proc  0 (PL:1) finalpractice.pml:20 (state -)	[values: 3!REDLIGHT]
+286:	proc  0 (PL:1) finalpractice.pml:20 (state 2)	[vlchan!REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT][REDLIGHT]
+
+287:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+288:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+288:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+289:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+290:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+290:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [CANWALK][CANWALK]
+
+291:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+292:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+293:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+294:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+294:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): [REDLIGHT]
+
+295:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+296:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]
+		VL(1):red = 1
+
+297:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+298:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+298:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+299:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+300:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+300:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [CANWALK]
+
+301:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+302:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+303:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+304:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+304:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [CANWALK][RB]
+
+305:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+306:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+306:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+307:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+308:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+308:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+309:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+310:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+		push = 0
+
+311:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+312:	proc  2 (Ped:1) finalpractice.pml:43 (state -)	[values: 1?CANWALK]
+312:	proc  2 (Ped:1) finalpractice.pml:43 (state 1)	[pedchan?CANWALK]
+		queue 1 (pedchan): 
+
+313:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+314:	proc  2 (Ped:1) finalpractice.pml:44 (state 2)	[push = 0]
+
+315:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+316:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+317:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+318:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+		push = 1
+
+319:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+320:	proc  0 (PL:1) finalpractice.pml:21 (state -)	[values: 2?CANWALK]
+320:	proc  0 (PL:1) finalpractice.pml:21 (state 3)	[plchan?CANWALK]
+		queue 2 (plchan): [RB]
+
+321:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+322:	proc  0 (PL:1) finalpractice.pml:22 (state 4)	[walk = 1]
+		PL(0):walk = 1
+
+323:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+324:	proc  2 (Ped:1) finalpractice.pml:47 (state -)	[values: 2!RB]
+324:	proc  2 (Ped:1) finalpractice.pml:47 (state 5)	[plchan!RB]
+		queue 2 (plchan): [RB][RB]
+
+325:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+326:	proc  2 (Ped:1) finalpractice.pml:45 (state 3)	[((len(pedchan)==0))]
+
+327:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+328:	proc  0 (PL:1) finalpractice.pml:23 (state -)	[values: 1!CANWALK]
+328:	proc  0 (PL:1) finalpractice.pml:23 (state 5)	[pedchan!CANWALK]
+		queue 1 (pedchan): [CANWALK]
+
+329:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+330:	proc  0 (PL:1) finalpractice.pml:19 (state -)	[values: 2?RB]
+330:	proc  0 (PL:1) finalpractice.pml:19 (state 1)	[plchan?RB]
+		queue 2 (plchan): [RB]
+
+331:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+332:	proc  1 (VL:1) finalpractice.pml:34 (state -)	[values: 2!CANWALK]
+332:	proc  1 (VL:1) finalpractice.pml:34 (state 3)	[plchan!CANWALK]
+		queue 2 (plchan): [RB][CANWALK]
+
+333:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+334:	proc  2 (Ped:1) finalpractice.pml:46 (state 4)	[push = 1]
+
+335:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+336:	proc  1 (VL:1) finalpractice.pml:32 (state -)	[values: 3?REDLIGHT]
+336:	proc  1 (VL:1) finalpractice.pml:32 (state 1)	[vlchan?REDLIGHT]
+		queue 3 (vlchan): 
+
+337:	proc  - (safePedestrian:1) _spin_nvr.tmp:13 (state 4)	[(1)]
+
+338:	proc  1 (VL:1) finalpractice.pml:33 (state 2)	[red = 1]

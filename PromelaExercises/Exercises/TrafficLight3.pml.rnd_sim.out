@@ -1,0 +1,294 @@
+  0:	proc  - (:root:) creates proc  0 (TrafficLight)
+  1:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+  2:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+  3:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+  4:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+  5:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+  6:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+  7:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+  8:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+  9:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 10:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 11:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 12:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 13:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 14:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 15:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 16:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 17:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 18:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 19:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 20:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 1)	[((status==GREEN))]
+		TrafficLight(0):status = GREEN
+
+ 21:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 2)	[status = ORANGE]
+		TrafficLight(0):status = ORANGE
+
+ 22:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = ORANGE
+
+ 23:	proc  0 (TrafficLight:1) TrafficLight3.pml:8 (state 3)	[((status==ORANGE))]
+		TrafficLight(0):status = ORANGE
+
+ 24:	proc  0 (TrafficLight:1) TrafficLight3.pml:8 (state 4)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 25:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 26:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 27:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 28:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 29:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 30:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 31:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 32:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 33:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 34:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 35:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 36:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 37:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 38:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 39:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 40:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 41:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 42:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 43:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 44:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 45:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 46:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 47:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 48:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 49:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 50:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 1)	[((status==GREEN))]
+		TrafficLight(0):status = GREEN
+
+ 51:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 2)	[status = ORANGE]
+		TrafficLight(0):status = ORANGE
+
+ 52:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = ORANGE
+
+ 53:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 54:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 55:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 56:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 57:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 58:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 59:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 60:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 1)	[((status==GREEN))]
+		TrafficLight(0):status = GREEN
+
+ 61:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 2)	[status = ORANGE]
+		TrafficLight(0):status = ORANGE
+
+ 62:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = ORANGE
+
+ 63:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 64:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 65:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 66:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 67:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 68:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 69:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 70:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 71:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 72:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 73:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 74:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 75:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 76:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 77:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 78:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 79:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 80:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 81:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 82:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 83:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 84:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 85:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 86:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 87:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 88:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 89:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 5)	[((status==RED))]
+		TrafficLight(0):status = RED
+
+ 90:	proc  0 (TrafficLight:1) TrafficLight3.pml:9 (state 6)	[status = GREEN]
+		TrafficLight(0):status = GREEN
+
+ 91:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = GREEN
+
+ 92:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 1)	[((status==GREEN))]
+		TrafficLight(0):status = GREEN
+
+ 93:	proc  0 (TrafficLight:1) TrafficLight3.pml:7 (state 2)	[status = ORANGE]
+		TrafficLight(0):status = ORANGE
+
+ 94:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = ORANGE
+
+ 95:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 96:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
+
+ 97:	proc  0 (TrafficLight:1) TrafficLight3.pml:10 (state 7)	[status = RED]
+		TrafficLight(0):status = RED
+
+ 98:	proc  0 (TrafficLight:1) TrafficLight3.pml:12 (state 9)	[.(goto)]
+		TrafficLight(0):status = RED
