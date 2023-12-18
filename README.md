@@ -10,3 +10,5 @@ This is my repo for learning Software Verficiation and Testing principles. Here,
 |  Spec-based Testing | [L2: Test Design with Fitnesse](https://github.com/CharlieZhang1999/18654-SoftwareVerificationAndTesting/tree/01e74f11ff6f3c3270d263614bf02eed7b0921bd/FitNesseLab-master)                       | 
 |  Static Analysis| [L3]()               | 
 |  Model Checking | [L4](https://github.com/CharlieZhang1999/18654-SoftwareVerificationAndTesting/tree/01e74f11ff6f3c3270d263614bf02eed7b0921bd/L4-A2), [A2](https://github.com/CharlieZhang1999/18654-SoftwareVerificationAndTesting/tree/01e74f11ff6f3c3270d263614bf02eed7b0921bd/L4-A2)         | 
+|  Ohter Promela Exercises | [Promela](https://github.com/CharlieZhang1999/18654-SoftwareVerificationAndTesting/tree/01e74f11ff6f3c3270d263614bf02eed7b0921bd/PromelaExercises)               | 
+|  Systematic Testing on an Open Source Project | [Project](https://github.com/CharlieZhang1999/SystematicTestingStrategiesOnApacheCommonsLang)               | 
